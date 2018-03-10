@@ -4,28 +4,15 @@ branches:
   only:
     - master
 
-
-
 env:
-#  global:
-    - TAG_SOURCE='build.28'
-#    - TAG_DESTINATION='build.28.1'
+  - TAG_TARGET='build.28'
+  - TAG_IS_DRAFT=false
+  - TAG_IS_PRE_RELEASE=true
 
-# - TAG_DESTINATION=$TRAVIS_BUILD_NUMBER
-
-
-
-#script: echo "$TRAVIS_BUILD_NUMBER : TAG: $TAG_SOURCE to $TAG_DESTINATION - OVERWRITE ??????" >> deploy/index.html
-script: echo "build.$TRAVIS_BUILD_NUMBER from build.28" >> deploy/index.html
-
-
-
+script: echo "build.$TRAVIS_BUILD_NUMBER ( from build.28 ) OVERWRITE" >> deploy/index.html
 
 before_deploy:
-# - git checkout "build.28"   					# <-------- try OVERWRITE.....
-  - git checkout "$TAG_SOURCE"					# <-------- try OVERWRITE.....
-
-
+  - git checkout "$TAG_TARGET"					# <-------- try OVERWRITE.....
 
 deploy:
   - provider: releases
@@ -36,18 +23,11 @@ deploy:
     skip-cleanup: true
     file: deploy/index.html
     verbose: true
-    draft: false
-    prerelease: true
+#   draft: false
+    draft: $TAG_IS_DRAFT
+#   prerelease: true
+    prerelease: $TAG_IS_PRE_RELEASE
     name: 'Pre-Release (Linux)'
     body: 'Pre-Release: déploiement public des assets, avec les sources (visible par le public)'
-#   tag_name: 'build.28'		        		# <-------- cible du déploiement
-#   tag_name: $TAG_DESTINATION					# <-------- cible du déploiement
-    tag_name: $TAG_SOURCE     					# <-------- cible du déploiement
-    overwrite: true								      # <-------- écrase les fichiers, si tag exist
-
-
-
-#	TODO: ..
-
-#after_deploy:
-#  - git push --delete origin "$TAG_SOURCE"		# <-------- try DELETE.....
+    tag_name: $TAG_TARGET						# <-------- cible du déploiement
+    overwrite: true								# <-------- écrase les fichiers, si tag exist
