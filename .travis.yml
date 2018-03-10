@@ -5,6 +5,13 @@ dist: trusty
 script:
   echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index.html
 
+    before_deploy:
+      # Set up git user name and tag this commit
+      - git config --local user.name "djohn7504"
+      - git config --local user.email "djohn7504@gmail.com"
+      - git tag "1.0"
+
+
 deploy:
   
 #  -provider: pages
@@ -19,6 +26,9 @@ deploy:
   provider: releases
   skip-cleanup: true
   file: deploy.html
-  api-key:
-    secure: $GITHUB_TOKEN
+#  api-key:
+#    secure: $GITHUB_TOKEN
+  user: $GITHUB_USERNAME
+  password: $GITHUB_PASSWORD
   verbose: true
+  overwrite: true
