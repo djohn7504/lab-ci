@@ -10,7 +10,8 @@ script:
   - echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index.html
 
 before_deploy:
-  - git tag "build.$TRAVIS_BUILD_NUMBER"  # <-------- doit être unique ?..
+#  - git tag "build.$TRAVIS_BUILD_NUMBER"  # <-------- doit être unique ?..
+  - git tag "build.20"  # <-------- ..
 
 deploy:
   - provider: releases
