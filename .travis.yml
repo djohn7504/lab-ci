@@ -8,10 +8,10 @@ branches:
 
 
 
-env:
-  global:
-    - TAG_SOURCE='build.28'
-    - TAG_DESTINATION='build.28.1'
+#env:
+#  global:
+#    - TAG_SOURCE='build.28'
+#    - TAG_DESTINATION='build.28.1'
 
 # - TAG_DESTINATION=$TRAVIS_BUILD_NUMBER
 
