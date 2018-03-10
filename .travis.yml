@@ -5,15 +5,14 @@ branches:
     - master
 
 env:
-  global:
   - TAG_TARGET='build.28'
   - TAG_IS_DRAFT=false
   - TAG_IS_PRE_RELEASE=true
 
 script: echo "build.$TRAVIS_BUILD_NUMBER ( from build.28 ) OVERWRITE" >> deploy/index.html
 
-#before_deploy:
-#  - git checkout "$TAG_TARGET"					# <-------- try OVERWRITE.....
+before_deploy:
+  - git checkout "$TAG_TARGET"					# <-------- aller dans la bonne branche..
 
 deploy:
   - provider: releases
@@ -22,13 +21,12 @@ deploy:
     api-key:
       - secure: $GITHUB_TOKEN
     skip-cleanup: true
-    overwrite: true								# <-------- écrase les fichiers, si tag exist
+    overwrite: true								# <-------- écrase les fichiers du tag existant !
     file: deploy/index.html
     verbose: true
     
     tag_name: $TAG_TARGET						# <-------- cible du déploiement
     draft: $TAG_IS_DRAFT
     prerelease: $TAG_IS_PRE_RELEASE
-    
     name: 'Pre-Release (Linux)'
     body: 'Pre-Release: déploiement public des assets, avec les sources (visible par le public)'
