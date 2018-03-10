@@ -14,7 +14,7 @@ script: echo "build.28 OVERWRITE ??????" >> deploy/index.html
 before_deploy:
 # - git tag "string"							# <-------- inutil si deploy.draft: true
 # - git tag "build.$TRAVIS_BUILD_NUMBER"		# <-------- doit être unique ?..
-  - git tag "build.28"							# <-------- try OVERWRITE.....
+  - git checkout 'build.28'							# <-------- try OVERWRITE.....
 
 #	voir:
 #	tag_name: $TRAVIS_TAG		?..
