@@ -5,9 +5,10 @@ branches:
     - master
 
 env:
-  - TAG_TARGET='build.28'
-  - TAG_IS_DRAFT=false
-  - TAG_IS_PRE_RELEASE=true
+  global:
+    - TAG_TARGET='build.28'
+    - TAG_IS_DRAFT=false
+    - TAG_IS_PRE_RELEASE=true
 
 script: echo "build.$TRAVIS_BUILD_NUMBER ( from build.28 ) OVERWRITE" >> deploy/index.html
 
