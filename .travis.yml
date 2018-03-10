@@ -5,7 +5,7 @@ dist: trusty
 script:
   echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index.html
 
-#before_deploy:
+before_deploy:
   - git tag "v0.0.$TRAVIS_BUILD_NUMBER"
 
 deploy:
