@@ -24,4 +24,6 @@ deploy:
     overwrite: true  # <-------- ?..
     on:
       branch: master
+    name: 'Draft (Linux)'  # <-------- ?..
     draft: true
+    prerelease: true  # <-------- ?..
