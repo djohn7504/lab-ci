@@ -6,7 +6,7 @@ script:
   echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index.html
 
 before_deploy:
-  - git tag "v0.0.$TRAVIS_BUILD_NUMBER"
+  - git tag "v1.0"
 
 deploy:
   - provider: releases
