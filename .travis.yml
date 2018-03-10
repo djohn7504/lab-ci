@@ -32,3 +32,5 @@ deploy:
   password: $GITHUB_PASSWORD
   verbose: true
   overwrite: true
+  on:
+    branch: master
