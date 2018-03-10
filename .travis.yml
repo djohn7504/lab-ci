@@ -1,5 +1,7 @@
 sudo: false
+
 dist: trusty
+
 branches:
   only:
     - master
