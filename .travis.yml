@@ -18,7 +18,7 @@ branches:
 
 
 #script: echo "$TRAVIS_BUILD_NUMBER : TAG: $TAG_SOURCE to $TAG_DESTINATION - OVERWRITE ??????" >> deploy/index.html
-script: echo "$TRAVIS_BUILD_NUMBER : TAG: build.28 to build.28.1 - OVERWRITE ??????" >> deploy/index.html
+script: echo "$TRAVIS_BUILD_NUMBER from build.28" >> deploy/index.html
 
 
 
