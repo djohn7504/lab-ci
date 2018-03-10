@@ -12,8 +12,8 @@ env:
 
 script: echo "build.$TRAVIS_BUILD_NUMBER ( from build.28 ) OVERWRITE" >> deploy/index.html
 
-before_deploy:
-  - git checkout "$TAG_TARGET"					# <-------- try OVERWRITE.....
+#before_deploy:
+#  - git checkout "$TAG_TARGET"					# <-------- try OVERWRITE.....
 
 deploy:
   - provider: releases
@@ -32,7 +32,3 @@ deploy:
     
     name: 'Pre-Release (Linux)'
     body: 'Pre-Release: déploiement public des assets, avec les sources (visible par le public)'
-
-
-after_deploy:
-  - git push --delete origin "1.0"
