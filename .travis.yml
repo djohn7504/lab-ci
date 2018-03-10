@@ -4,26 +4,26 @@ dist: trusty
 
 branches:
   only:
-    - master  # <-------- prévient un re-build !
+    - master									# <-------- prévient un re-build, si releases !
 
-script:
-  - echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index.html
+script: echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index.html
 
-#before_deploy:
-#  - git tag "build.$TRAVIS_BUILD_NUMBER"  # <-------- doit être unique ?..
-#  - git tag "build.20"  # <-------- ..
+
 
 deploy:
   - provider: releases
+    on:
+      branch: master
+      tags: false								# <-------- deployment is triggered only if $TRAVIS_TAG is empty.
+    api-key:
+      - secure: $GITHUB_TOKEN
     skip-cleanup: true
     file:
       - deploy/index.html
-    api-key:
-      - secure: $GITHUB_TOKEN
     verbose: true
-    overwrite: true  # <-------- ?..
-    on:
-      branch: master
-    name: 'Draft (Linux)'  # <-------- ?..
+    overwrite: true								# <-------- ?..
     draft: true
-    prerelease: true  # <-------- ?..
+    prerelease: true
+    name: 'Draft (Linux)'
+    body: 'déploie des assets, sans être tagué..'
+    
