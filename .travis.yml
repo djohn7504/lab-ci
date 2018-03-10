@@ -22,6 +22,6 @@ deploy:
     verbose: true
     overwrite: true  # <-------- ?..
     on:
-      - branch: master
+      branch: master
 
 # draft: true
