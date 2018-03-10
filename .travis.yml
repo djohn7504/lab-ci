@@ -37,6 +37,4 @@ deploy:
 #    body: 'Pre-Release: déploiement public des assets, avec les sources (visible par le public)'
 
     verbose: true
-
-
-#    draft:										# <-------- NE PAS CHANGER !  (sinon ca change le tag ?..)
+    draft: true										# <-------- NE PAS CHANGER !  (sinon ca change le tag ?..)
