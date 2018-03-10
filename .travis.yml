@@ -22,13 +22,17 @@ deploy:
     api-key:
       - secure: $GITHUB_TOKEN
     skip-cleanup: true
+    overwrite: true								# <-------- écrase les fichiers, si tag exist
     file: deploy/index.html
     verbose: true
-#   draft: false
+    
+    tag_name: $TAG_TARGET						# <-------- cible du déploiement
     draft: $TAG_IS_DRAFT
-#   prerelease: true
     prerelease: $TAG_IS_PRE_RELEASE
+    
     name: 'Pre-Release (Linux)'
     body: 'Pre-Release: déploiement public des assets, avec les sources (visible par le public)'
-    tag_name: $TAG_TARGET						# <-------- cible du déploiement
-    overwrite: true								# <-------- écrase les fichiers, si tag exist
+
+
+after_deploy:
+  - git push --delete origin "1.0"
