@@ -25,7 +25,7 @@ deploy:
   
   provider: releases
   skip-cleanup: true
-  file: deploy.html
+  file: deploy/index.html
 #  api-key:
 #    secure: $GITHUB_TOKEN
   user: $GITHUB_USERNAME
