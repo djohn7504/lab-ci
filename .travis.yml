@@ -10,20 +10,29 @@ script: echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index.html
 
 
 
+before_deploy:
+#	- git tag "string"							# <-------- inutil si deploy.draft: true
+	- git tag "build.$TRAVIS_BUILD_NUMBER"		# <-------- doit être unique ?..
+
+#	voir:
+#	tag_name: $TRAVIS_TAG		?..
+
+
 deploy:
   - provider: releases
     on:
       branch: master
-      tags: false								# <-------- deployment is triggered only if $TRAVIS_TAG is empty.
+#     tags: true								# <-------- deployment is triggered only if $TRAVIS_TAG is set.
+#     tags: false								# <-------- deployment is triggered only if $TRAVIS_TAG is empty.
     api-key:
       - secure: $GITHUB_TOKEN
     skip-cleanup: true
-    file:
-      - deploy/index.html
+    overwrite: true								# <-------- écrase les fichiers du tag ?..
+    file: deploy/index.html
     verbose: true
-    overwrite: true								# <-------- ?..
-    draft: true
-    prerelease: true
-    name: 'Draft (Linux)'
-    body: 'déploie des assets, sans être tagué..'
+    draft: false
+    prerelease: false
+    name: 'Release (Linux)'
+    body: 'Release: déploiement public des assets (visible par le public)'
     
+#   tag_name: $TRAVIS_TAG						# <-------- ?..
