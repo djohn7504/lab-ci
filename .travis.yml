@@ -5,6 +5,7 @@ branches:
     - master
 
 env:
+  global:
   - TAG_TARGET='build.28'
   - TAG_IS_DRAFT=false
   - TAG_IS_PRE_RELEASE=true
