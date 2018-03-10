@@ -31,8 +31,8 @@ deploy:
     file: deploy/index.html
     verbose: true
     draft: false
-    prerelease: false
-    name: 'Release (Linux)'
-    body: 'Release: déploiement public des assets (visible par le public)'
+    prerelease: true
+    name: 'Pre-Release (Linux)'
+    body: 'Pre-Release: déploiement public des assets, avec les sources (visible par le public)'
     
 #   tag_name: $TRAVIS_TAG						# <-------- ?..
