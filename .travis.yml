@@ -42,7 +42,7 @@ deploy:
     prerelease: true
     name: 'Pre-Release (Linux)'
     body: 'Pre-Release: déploiement public des assets, avec les sources (visible par le public)'
-    tag_name: 'build.28.1'		      		# <-------- cible du déploiement
+    tag_name: 'build.28'		      		# <-------- cible du déploiement
 #   tag_name: $TAG_DESTINATION					# <-------- cible du déploiement
     overwrite: true								      # <-------- écrase les fichiers, si tag exist
 
