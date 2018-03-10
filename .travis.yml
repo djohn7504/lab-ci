@@ -24,5 +24,4 @@ deploy:
     overwrite: true  # <-------- ?..
     on:
       branch: master
-
-# draft: true
+    draft: true
