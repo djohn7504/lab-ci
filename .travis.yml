@@ -22,8 +22,8 @@ script: echo "build.$TRAVIS_BUILD_NUMBER from build.28" >> deploy/index.html
 
 
 before_deploy:
-  - git checkout "build.28"   					# <-------- try OVERWRITE.....
-#  - git checkout "$TAG_SOURCE"					# <-------- try OVERWRITE.....
+# - git checkout "build.28"   					# <-------- try OVERWRITE.....
+  - git checkout "$TAG_SOURCE"					# <-------- try OVERWRITE.....
 
 
 
@@ -40,8 +40,9 @@ deploy:
     prerelease: true
     name: 'Pre-Release (Linux)'
     body: 'Pre-Release: déploiement public des assets, avec les sources (visible par le public)'
-    tag_name: 'build.28'		      		# <-------- cible du déploiement
+#   tag_name: 'build.28'		        		# <-------- cible du déploiement
 #   tag_name: $TAG_DESTINATION					# <-------- cible du déploiement
+    tag_name: $TAG_SOURCE     					# <-------- cible du déploiement
     overwrite: true								      # <-------- écrase les fichiers, si tag exist
 
 
