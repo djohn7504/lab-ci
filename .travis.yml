@@ -6,7 +6,8 @@ script:
   echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index.html
 
 deploy:
-  provider: pages
+  
+  -provider: pages
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
   keep-history: false
@@ -14,3 +15,10 @@ deploy:
   verbose: true
   on:
     branch: master
+  
+  -provider: releases
+  skip-cleanup: true
+  file: deploy.html
+  api-key:
+    secure: $GITHUB_TOKEN
+  verbose: true
