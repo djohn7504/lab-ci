@@ -36,5 +36,6 @@ deploy:
     prerelease: true
     name: 'Pre-Release (Linux)'
     body: 'Pre-Release: déploiement public des assets, avec les sources (visible par le public)'
-    tag_name: 'build.28'
+    tag_name: 'build.28.1'
+
 #   tag_name: $TRAVIS_TAG						# <-------- ?..
