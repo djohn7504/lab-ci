@@ -11,8 +11,8 @@ script: echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index.html
 
 
 before_deploy:
-#	- git tag "string"							# <-------- inutil si deploy.draft: true
-	- git tag "build.$TRAVIS_BUILD_NUMBER"		# <-------- doit être unique ?..
+# - git tag "string"							# <-------- inutil si deploy.draft: true
+  - git tag "build.$TRAVIS_BUILD_NUMBER"		# <-------- doit être unique ?..
 
 #	voir:
 #	tag_name: $TRAVIS_TAG		?..
