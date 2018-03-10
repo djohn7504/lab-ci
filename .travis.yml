@@ -28,8 +28,8 @@ deploy:
   file: deploy/index.html
   api-key:
     secure: $GITHUB_TOKEN
-  user: $GITHUB_USERNAME
-  password: $GITHUB_PASSWORD
+#  user: $GITHUB_USERNAME
+ # password: $GITHUB_PASSWORD
   verbose: true
   overwrite: true
   on:
