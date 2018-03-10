@@ -1,41 +1,49 @@
 sudo: false
-
 dist: trusty
-
 branches:
   only:
-    - master									# <-------- prévient un re-build, si releases !
+    - master
 
-#script: echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index.html
-script: echo "build.28 OVERWRITE ??????" >> deploy/index.html
+
+
+env:
+  - TAG_SOURCE='build.28'
+  - TAG_DESTINATION='build.28.1'
+  
+# - TAG_DESTINATION=$TRAVIS_BUILD_NUMBER
+
+
+
+script: echo "$TRAVIS_BUILD_NUMBER : TAG: $TAG_SOURCE to $TAG_DESTINATION - OVERWRITE ??????" >> deploy/index.html
+
 
 
 
 before_deploy:
-# - git tag "string"							# <-------- inutil si deploy.draft: true
-# - git tag "build.$TRAVIS_BUILD_NUMBER"		# <-------- doit être unique ?..
-  - git checkout 'build.28'							# <-------- try OVERWRITE.....
+  - git checkout "$TAG_SOURCE"					# <-------- try OVERWRITE.....
 
-#	voir:
-#	tag_name: $TRAVIS_TAG		?..
 
 
 deploy:
   - provider: releases
     on:
       branch: master
-#     tags: true								# <-------- deployment is triggered only if $TRAVIS_TAG is set.
-#     tags: false								# <-------- deployment is triggered only if $TRAVIS_TAG is empty.
     api-key:
       - secure: $GITHUB_TOKEN
     skip-cleanup: true
-    overwrite: true								# <-------- écrase les fichiers du tag ?..
     file: deploy/index.html
     verbose: true
     draft: false
     prerelease: true
     name: 'Pre-Release (Linux)'
     body: 'Pre-Release: déploiement public des assets, avec les sources (visible par le public)'
-    tag_name: 'build.28.1'
+    
+    tag_name: $TAG_DESTINATION					# <-------- cible du déploiement
+    overwrite: true								# <-------- écrase les fichiers, si tag exist
 
-#   tag_name: $TRAVIS_TAG						# <-------- ?..
+
+
+#	TODO: ..
+
+after_deploy:
+  - git push --delete origin "$TAG_SOURCE"		# <-------- try DELETE.....
