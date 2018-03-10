@@ -4,13 +4,13 @@ dist: trusty
 
 branches:
   only:
-    - master
+    - master									# <-------- prévient un re-build, si deploy.releases !
 
 env:
   global:
     - TAG_TARGET='build.28'
 
-script: echo "build.$TRAVIS_BUILD_NUMBER" >> deploy/index.html
+script: echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index.html
 
 before_deploy:
   - git checkout "$TAG_TARGET"					# <-------- aller dans la bonne branche..
@@ -23,7 +23,19 @@ deploy:
       - secure: $GITHUB_TOKEN
     skip-cleanup: true
     file: deploy/index.html
-    verbose: true
-    
-    tag_name: $TAG_TARGET						# <-------- cible du déploiement
+
+#    tag_name: $TAG_TARGET						# <-------- cible du déploiement
+    tag_name: release-test						# <-------- cible du déploiement			( si on change, alors ancien reste aussi )
     overwrite: true								# <-------- écrase les fichiers du tag existant !
+    
+    prerelease: false
+    name: 'Release (Linux)'
+    body: 'Release: déploiement public des assets, avec les sources (visible par le public)'
+
+#    prerelease: true
+#    name: 'Pre-Release (Linux)'
+#    body: 'Pre-Release: déploiement public des assets, avec les sources (visible par le public)'
+
+    verbose: true
+
+#    draft:										# <-------- NE PAS CHANGER !  (sinon ca change le tag ?..)
