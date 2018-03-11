@@ -16,7 +16,7 @@ build: off
 artifacts:
 - path: deploy\index-win.html
   name: TheIndex
-#  type: Zip
+  type: File
 
 #deploy: off
 
