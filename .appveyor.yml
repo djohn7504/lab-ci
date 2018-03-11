@@ -1,5 +1,13 @@
 version: 1.0.{build}
 
+
+
+
+shallow_clone: false
+
+
+
+
 build_script:
 - cmd: echo "Hello"
 
