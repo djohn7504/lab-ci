@@ -13,9 +13,9 @@ build: off
 
 artifacts:
   - path: deploy
-- path: deploy\index-win.html
-  name: TheIndex
-  type: File
+#- path: deploy\index-win.html
+#  name: TheIndex
+#  type: File
 
 #deploy: off
 
