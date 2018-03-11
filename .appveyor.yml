@@ -1,10 +1,17 @@
-#image: ubuntu
+branches:
+  only:
+    - master
+
+skip_tags: true
 
 install:
-#- npm install
 
 test_script:
-#- npm test
 - echo "Hello"
 
 build: off
+
+artifacts:
+  - path: deploy
+
+deploy: off
