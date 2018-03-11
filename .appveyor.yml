@@ -6,6 +6,7 @@ build_script:
 artifacts:
 - path: deploy\index-win.html
   name: TheIndex
+  type: File
   
 deploy:
 - provider: GitHub
