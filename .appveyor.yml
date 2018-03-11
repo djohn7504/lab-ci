@@ -13,7 +13,8 @@ artifacts:
   type: Zip
   
 deploy:
-- provider: GitHub
+  provider: GitHub
+  description: 'Release description'
 #  tag: release-test
 #  release: release-test
   auth_token:
