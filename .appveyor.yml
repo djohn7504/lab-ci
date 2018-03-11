@@ -1,4 +1,6 @@
 version: 1.0.{build}
+build_script:
+- cmd: echo "Hello"
 deploy:
 - provider: GitHub
   tag: release-test
