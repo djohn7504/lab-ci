@@ -3,7 +3,7 @@ version: 1.0.{build}
 build_script:
 - cmd: echo "Hello"
 
-after_build:
+before_deploy:
   - ps: echo $artifacts
   - cmd: dir deploy
 
