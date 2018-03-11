@@ -11,7 +11,22 @@ test_script:
 
 build: off
 
-artifacts:
-  - path: deploy
+#artifacts:
+#  - path: deploy
 
-deploy: off
+#deploy: off
+
+deploy:
+  provider: GitHub
+  description: 'Release description'
+#  tag: release-test
+#  release: release-test
+  auth_token:
+    secure: n3y7yTAYWRGZctRFYFpyEhV5Bb4SxaH+uba0/T1gLFxZZSujSzru6UhH0xPbHCyq
+#  artifact: TheIndex
+#  force_update: true
+#  draft: true
+#  prerelease: false
+#  repository: djohn7504/lab-ci
+  on:
+    branch: master
