@@ -10,7 +10,7 @@ deploy:
   release: release-test
   auth_token:
     secure: n3y7yTAYWRGZctRFYFpyEhV5Bb4SxaH+uba0/T1gLFxZZSujSzru6UhH0xPbHCyq
-  artifact: deploy/index-win.html
+  artifact:
   force_update: true
   on:
     branch: master
