@@ -13,6 +13,10 @@ build: off
 
 #artifacts:
 #  - path: deploy
+#artifacts:
+- path: deploy\index-win.html
+  name: TheIndex
+#  type: Zip
 
 #deploy: off
 
@@ -24,8 +28,8 @@ deploy:
   release: 1.0.30
   auth_token:
     secure: n3y7yTAYWRGZctRFYFpyEhV5Bb4SxaH+uba0/T1gLFxZZSujSzru6UhH0xPbHCyq
-#  artifact: TheIndex
-  artifact: deploy\index-win.html
+  artifact: TheIndex
+#  artifact: deploy\index-win.html
 #  force_update: true
 #  draft: true
 #  prerelease: false
