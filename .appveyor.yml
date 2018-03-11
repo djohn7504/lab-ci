@@ -25,7 +25,7 @@ deploy:
   auth_token:
     secure: n3y7yTAYWRGZctRFYFpyEhV5Bb4SxaH+uba0/T1gLFxZZSujSzru6UhH0xPbHCyq
 #  artifact: TheIndex
-#  force_update: true
+  force_update: true
 #  draft: true
 #  prerelease: false
 #  repository: djohn7504/lab-ci
