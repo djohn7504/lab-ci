@@ -14,7 +14,7 @@ deploy:
   release: release-test
   auth_token:
     secure: n3y7yTAYWRGZctRFYFpyEhV5Bb4SxaH+uba0/T1gLFxZZSujSzru6UhH0xPbHCyq
-  artifact: TheIndex
+  artifact: "deploy\index-win.html"
   force_update: true
   on:
     branch: master
