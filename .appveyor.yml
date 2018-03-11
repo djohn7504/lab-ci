@@ -1,25 +1,21 @@
 version: 1.0.{build}
 
 
-
-
-shallow_clone: false
-
-
+#shallow_clone: false
 
 
 build_script:
 - cmd: echo "Hello"
 
-before_deploy:
-  - ps: echo $artifacts
+#before_deploy:
+#  - ps: echo $artifacts
 #  - cmd: dir deploy
 
-artifacts:
-- path: deploy\index-win.html
-  name: TheIndex
-  type: Zip
-  
+#artifacts:
+#- path: deploy\index-win.html
+#  name: TheIndex
+#  type: Zip
+
 deploy:
   provider: GitHub
   description: 'Release description'
