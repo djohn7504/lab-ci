@@ -20,7 +20,7 @@ deploy:
     on:
       branch: master
     api-key:
-      - secure: $GITHUB_TOKEN2
+      - secure: $GITHUB_TOKEN
     skip-cleanup: true
     file: deploy/index.html
 
@@ -29,7 +29,7 @@ deploy:
     overwrite: true								# <-------- écrase les fichiers du tag existant !
     
 #   prerelease: ?								# <-------- on ne peut changer, que le courant !
-    prerelease: true
+    prerelease: false
     name: 'Release (Linux)'
     body: 'Release: déploiement public des assets, avec les sources (visible par le public)'
 
