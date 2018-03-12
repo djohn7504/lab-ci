@@ -26,7 +26,7 @@ deploy:
 #  release: release-test
 #  release: 1.0.30
   auth_token:
-    secure: n3y7yTAYWRGZctRFYFpyEhV5Bb4SxaH+uba0/T1gLFxZZSujSzru6UhH0xPbHCyq
+    secure: 7RRqPIF4QkklZNMCs/INNpMUiiYad2N3zxkzgMc6isuBdd95NuoImqA9fzOvrjHg
 #  artifact: TheIndex
 #  artifact: deploy\index-win.html
 #  force_update: true
