@@ -17,6 +17,9 @@ script: echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index.html
 #before_deploy:
 #  - git checkout "$TAG_TARGET"					# <-------- aller dans la bonne branche..
 
+before_script:
+  - git checkout master
+
 deploy:
   - provider: releases
     on:
