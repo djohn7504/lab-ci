@@ -24,9 +24,4 @@ deploy:
     tag_name: new-target
     overwrite: true
     
-    draft: false
-    prerelease: false
-    name: 'Release title (Linux)'
-    body: 'Release description: déploiement public des assets, avec les sources (visible par le public)'
-
     verbose: true
