@@ -12,9 +12,9 @@ test_script:
 build: off
 
 artifacts:
-  - path: deploy
-#- path: deploy\index-win.html
-#  name: TheIndex
+#  - path: deploy
+- path: deploy\index-win.html
+  name: TheIndex
 #  type: File
 
 #deploy: off
