@@ -8,17 +8,13 @@ branches:
 
 env:
   global:
-    - TAG_TARGET='new-target'
+    - TAG_TARGET='release-test'
 
 script: echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index.html
 
-#     OK NEEDED ?!..
+#	si existe pas ?..
 before_deploy:
-  - git checkout "new-target"
-
-# ?..
-after_deploy:
-  - git checkout "master"
+  - git checkout "$TAG_TARGET"					# <-------- aller dans la bonne branche..
 
 deploy:
   - provider: releases
@@ -29,8 +25,12 @@ deploy:
     skip-cleanup: true
     file: deploy/index.html
 
-#   target_commitish: $TRAVIS_COMMIT    # BAD
-    tag_name: new-target
-    overwrite: true
-    
+    tag_name: $TAG_TARGET						# <-------- cible du déploiement
+    overwrite: true								# <-------- écrase les fichiers du tag existant !
+
     verbose: true
+
+# utile ?..
+after_deploy:
+  - git checkout "master"
+
