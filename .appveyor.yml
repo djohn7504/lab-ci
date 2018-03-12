@@ -7,8 +7,8 @@ skip_tags: true
 install:
 
 test_script:
-- echo "Hello" $(appveyor_build_version)
-- echo %build%
+- echo "Hello" %appveyor_build_version%
+- echo %PLATFORM%
 
 build: off
 
