@@ -13,7 +13,7 @@ env:
 script: echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index.html
 
 before_deploy:
-  - git checkout "$TAG_TARGET"					# <-------- aller dans la bonne branche..
+#  - git checkout "$TAG_TARGET"					# <-------- aller dans la bonne branche..
 
 deploy:
   - provider: releases
