@@ -12,6 +12,9 @@ env:
 
 script: echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index.html
 
+before_deploy:
+  - git checkout "new-target"
+
 deploy:
   - provider: releases
     on:
