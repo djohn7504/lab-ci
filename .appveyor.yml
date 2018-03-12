@@ -7,8 +7,10 @@ skip_tags: true
 install:
 
 test_script:
-- echo "Hello" %appveyor_build_version%
-- echo %PLATFORM%
+- echo "build" %appveyor_build_version%
+- echo "build" %appveyor_build_number%
+#- echo %PLATFORM%
+- echo "build %appveyor_build_version%" >> deploy/index-win.html
 
 build: off
 
