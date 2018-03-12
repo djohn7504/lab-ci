@@ -12,8 +12,9 @@ env:
 
 script: echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index.html
 
-before_deploy:
-  - git checkout "new-target"
+#     OK NEEDED ?!..
+#before_deploy:
+#  - git checkout "new-target"
 
 deploy:
   - provider: releases
@@ -24,6 +25,7 @@ deploy:
     skip-cleanup: true
     file: deploy/index.html
 
+    target_commitish: $TRAVIS_COMMIT
     tag_name: new-target
     overwrite: true
     
