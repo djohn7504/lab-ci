@@ -8,6 +8,7 @@ install:
 
 test_script:
 - echo "Hello" $(appveyor_build_version)
+- echo {build}
 
 build: off
 
