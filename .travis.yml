@@ -12,8 +12,8 @@ env:
 
 script: echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index.html
 
-before_deploy:
-  - git checkout "$TAG_TARGET"					# <-------- aller dans la bonne branche..
+#before_deploy:
+#  - git checkout "$TAG_TARGET"					# <-------- aller dans la bonne branche..
 
 deploy:
   - provider: releases
@@ -24,12 +24,12 @@ deploy:
     skip-cleanup: true
     file: deploy/index.html
 
-    tag_name: $TAG_TARGET						# <-------- cible du déploiement
+#    tag_name: $TAG_TARGET						# <-------- cible du déploiement
 #    tag_name: release-test						# <-------- cible du déploiement			( si on change, alors ancien reste aussi )
-    overwrite: true								# <-------- écrase les fichiers du tag existant !
+#    overwrite: true								# <-------- écrase les fichiers du tag existant !
     
 #   prerelease: ?								# <-------- on ne peut changer, que le courant !
-    prerelease: false
+#    prerelease: false
     name: 'Release (Linux)'
     body: 'Release: déploiement public des assets, avec les sources (visible par le public)'
 
