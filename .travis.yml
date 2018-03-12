@@ -8,7 +8,8 @@ branches:
 
 env:
   global:
-    - TAG_TARGET='release-test'
+#    - TAG_TARGET='release-test'
+    - TAG_TARGET='release-test-linux'
 
 script: echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index.html
 
@@ -24,17 +25,14 @@ deploy:
     skip-cleanup: true
     file: deploy/index.html
 
-#    tag_name: $TAG_TARGET						# <-------- cible du déploiement
-#    tag_name: release-test						# <-------- cible du déploiement			( si on change, alors ancien reste aussi )
-#    overwrite: true								# <-------- écrase les fichiers du tag existant !
+    tag_name: $TAG_TARGET						# <-------- cible du déploiement
+#   tag_name: release-test						# <-------- cible du déploiement			( si on change, alors ancien reste aussi )
+#   overwrite: true								# <-------- écrase les fichiers du tag existant !
     
 #   prerelease: ?								# <-------- on ne peut changer, que le courant !
 #    prerelease: false
-    name: 'Release (Linux)'
-    body: 'Release: déploiement public des assets, avec les sources (visible par le public)'
-
-#    name: 'Pre-Release (Linux)'
-#    body: 'Pre-Release: déploiement public des assets, avec les sources (visible par le public)'
+    name: 'Release title (Linux)'
+    body: 'Release description: déploiement public des assets, avec les sources (visible par le public)'
 
     verbose: true
 #    draft: true										# <-------- NE PAS CHANGER !  (sinon ca change le tag ?..)
