@@ -20,7 +20,7 @@ deploy:
     on:
       branch: master
     api-key:
-      - secure: $GITHUB_TOKEN
+      - secure: $GITHUB_TOKEN2
     skip-cleanup: true
     file: deploy/index.html
 
