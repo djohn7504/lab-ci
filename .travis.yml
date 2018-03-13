@@ -17,6 +17,8 @@ script: echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index-linux.html
 before_deploy:
   - git checkout "master"
   - git status
+  - git checkout --
+  - git status
   # Aller dans la bonne branche, si exist, autrement elle est créée..
   - if [ "$TAG_EXIST" ]; then git checkout "$TAG_TARGET"; else echo "NOT EXIST"; fi
   
