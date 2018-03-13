@@ -11,6 +11,7 @@ env:
     - TAG_TARGET='release-test'
 #   - TAG_LIST=`git ls-remote --tags release-test`
     - TAG_LIST=`git ls-remote --tags ./release-test`
+    - TAG_EXIST=`git --verify release-test`
 
 script: echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index.html
 
@@ -18,7 +19,8 @@ script: echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index.html
 before_deploy:
   - echo "$TAG_LIST"
 # - if [ -n "$TAG_LIST" ]; then echo "OK"; else echo "NOT FOUND TAG"; fi
-  - if [ -n "$TAG_LIST" ]; then git checkout "$TAG_TARGET"; else echo "NOT FOUND TAG"; fi
+#  - if [ -n "$TAG_LIST" ]; then git checkout "$TAG_TARGET"; else echo "NOT FOUND TAG"; fi
+  - if [ "$TAG_EXIST" ]; then git checkout "$TAG_TARGET"; else echo "NOT EXIST"; fi
   
 #  - git checkout "$TAG_TARGET"					# <-------- aller dans la bonne branche..
 
