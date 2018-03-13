@@ -17,7 +17,8 @@ script: echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index.html
 before_deploy:
 #  - git checkout "$TAG_TARGET"					# <-------- aller dans la bonne branche..
   - echo "$TAG_EXIST"
-  - if [ "$TAG_EXIST" ]; then git checkout "$TAG_TARGET"; else echo "NOT EXIST"; fi
+#  - if [ "$TAG_EXIST" ]; then git checkout "$TAG_TARGET"; else echo "NOT EXIST"; fi
+  - if [ "$TAG_EXIST" != "$TAG_TARGET" ]; then git checkout "$TAG_TARGET"; else echo "NOT EXIST"; fi
   
 deploy:
   - provider: releases
