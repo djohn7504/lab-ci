@@ -8,10 +8,10 @@ test_script:
 - cmd: echo "build" %appveyor_build_version%
 
 build_script:
-- cmd: echo "build %appveyor_build_version%" >> deploy/index-win.html
+- cmd: echo "build %appveyor_build_version%" >> deploy/index-windows.html
 
 artifacts:
-- path: deploy\index-win.html
+- path: deploy\index-windows.html
 
 deploy:
 - provider: GitHub
