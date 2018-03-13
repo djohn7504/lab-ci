@@ -24,10 +24,15 @@ before_deploy:
 #  - git checkout "$TAG_TARGET"					# <-------- aller dans la bonne branche..
 #  - if [ git ls-remote --tags "$TAG_TARGET" ];
   - |
-    if [ -n `git ls-remote --tags "$TAG_TARGET"` ]
+    if [ -n `git ls-remote --tags "$TAG_TARGET"` ];
     then
       git checkout "$TAG_TARGET";					# <-------- aller dans la bonne branche..
+    else
+      echo "NOT FOUND TAG $TAG_TARGET !!!!!!!!!!!!!!!!"
     fi
+  - echo "==========================================================================="
+  - echo "==========================================================================="
+  - echo "==========================================================================="
 
 deploy:
   - provider: releases
