@@ -9,30 +9,25 @@ branches:
 env:
   global:
     - TAG_TARGET='release-test'
+    - TAG_LIST=`git ls-remote --tags "$TAG_TARGET"`
 
 script: echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index.html
 
 #	si existe pas ?..
 before_deploy:
-  - echo "==========================================================================="
-  - echo "==========================================================================="
-  - echo "==========================================================================="
-#  - git ls-remote --exit-code --tags "$TAG_TARGET"
-  - echo "==========================================================================="
-  - echo "==========================================================================="
-  - echo "==========================================================================="
 #  - git checkout "$TAG_TARGET"					# <-------- aller dans la bonne branche..
 #  - if [ git ls-remote --tags "$TAG_TARGET" ];
   - |
-    if [ -n `git ls-remote --tags "$TAG_TARGET"` ];
+#   if [ -n `git ls-remote --tags "$TAG_TARGET"` ];
+    if [ -n $TAG_LIST ];
     then
       git checkout "$TAG_TARGET";					# <-------- aller dans la bonne branche..
     else
-      echo "NOT FOUND TAG $TAG_TARGET !!!!!!!!!!!!!!!!"
+      echo "NOT FOUND TAG $TAG_TARGET !!!!!!!!!!!!!!!!";
     fi
-  - echo "==========================================================================="
-  - echo "==========================================================================="
-  - echo "==========================================================================="
+
+
+
 
 deploy:
   - provider: releases
