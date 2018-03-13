@@ -26,7 +26,7 @@ deploy:
     secure: 7RRqPIF4QkklZNMCs/INNpMUiiYad2N3zxkzgMc6isuBdd95NuoImqA9fzOvrjHg
 # artifact: TheIndex
 
-#  tag: release-test
+  tag: release-test
   force_update: true
 #  draft: true
 #  prerelease: false
