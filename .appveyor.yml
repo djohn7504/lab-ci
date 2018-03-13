@@ -1,42 +1,23 @@
-#	voir: https://ci.appveyor.com/project/djohn7504/lab-ci/settings
-#	ici, on complémente ou écrase les réglages..
-
-#	see: ignore appveyor.yml ..
-#	see: custom file name ..
-
-
 version: 1.0.{build}
 
 branches:
   only:
     - master
 
-skip_tags: true
-
 test_script:
-  - echo "build" %appveyor_build_version%
-  - echo "build" %appveyor_build_number%
+- cmd: echo "build" %appveyor_build_version%
 
 build_script:
-  - cmd: echo "build %appveyor_build_version%" >> deploy/index-win.html
-# - cmd: echo "build %appveyor_build_number%" >> deploy/index-win.html
+- cmd: echo "build %appveyor_build_version%" >> deploy/index-win.html
 
 artifacts:
-  - path: deploy\index-win.html
-    name: TheIndex
+- path: deploy\index-win.html
 
 deploy:
-  provider: GitHub
+- provider: GitHub
   on:
     branch: master
   auth_token:
     secure: 7RRqPIF4QkklZNMCs/INNpMUiiYad2N3zxkzgMc6isuBdd95NuoImqA9fzOvrjHg
-# artifact: TheIndex
-
   tag: release-test
   force_update: true
-#  draft: true
-#  prerelease: false
-  
-#  release: "Release title (Windows)"
-#  description: "Release description (Windows)"
