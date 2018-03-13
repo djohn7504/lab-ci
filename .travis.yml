@@ -18,7 +18,8 @@ before_deploy:
 #  - git checkout "master"
   - git status
 #  - git stash
-#  - git status
+  - git tag "$TAG_TARGET"
+  - git status
 #  - git add .
 #  - git commit -a --amend --no-edit
 #  - git checkout --force master
@@ -36,8 +37,8 @@ deploy:
     skip-cleanup: true
     file: deploy/index-linux.html
 
-    tag_name: $TAG_TARGET
-    target_commitish: $TRAVIS_COMMIT
+#    tag_name: $TAG_TARGET
+#    target_commitish: $TRAVIS_COMMIT
     overwrite: true
 
     verbose: true
