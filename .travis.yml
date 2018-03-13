@@ -17,8 +17,8 @@ script: echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index-linux.html
 before_deploy:
 #  - git checkout "master"
   - git status
-  - git stash
-  - git status
+#  - git stash
+#  - git status
 #  - git add .
 #  - git commit -a --amend --no-edit
 #  - git checkout --force master
@@ -37,6 +37,7 @@ deploy:
     file: deploy/index-linux.html
 
     tag_name: $TAG_TARGET
+    target_commitish: $TRAVIS_COMMIT
     overwrite: true
 
     verbose: true
