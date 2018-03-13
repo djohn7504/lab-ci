@@ -10,7 +10,7 @@ env:
   global:
     - TAG_TARGET='release-test'
 #   - TAG_SHA1=`git rev-parse release-test`  # print the SHA1 (if not exist, it return the unfound key !)
-    - TAG_EXIST=`git rev-list release-test`  # ..
+    - TAG_EXIST=`git rev-list --count release-test`  # ..
 
 script: echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index.html
 
