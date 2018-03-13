@@ -17,16 +17,17 @@ before_deploy:
   - echo "==========================================================================="
   - echo "==========================================================================="
   - echo "==========================================================================="
-  - git ls-remote --exit-code --tags "$TAG_TARGET"
+#  - git ls-remote --exit-code --tags "$TAG_TARGET"
   - echo "==========================================================================="
   - echo "==========================================================================="
   - echo "==========================================================================="
-  - git checkout "$TAG_TARGET"					# <-------- aller dans la bonne branche..
+#  - git checkout "$TAG_TARGET"					# <-------- aller dans la bonne branche..
 #  - if [ git ls-remote --tags "$TAG_TARGET" ];
-#  - if [ -n `git ls-remote --tags "$TAG_TARGET"` ]
-#    then
-#      git checkout "$TAG_TARGET";					# <-------- aller dans la bonne branche..
-#    fi
+  - |
+    if [ -n `git ls-remote --tags "$TAG_TARGET"` ]
+    then
+      git checkout "$TAG_TARGET";					# <-------- aller dans la bonne branche..
+    fi
 
 deploy:
   - provider: releases
