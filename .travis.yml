@@ -18,7 +18,7 @@ before_deploy:
 #  - git checkout "master"
   - git status
 #  - git stash
-  - git tag "$TAG_TARGET"
+  - git tag -f "$TAG_TARGET"
   - git status
 #  - git add .
 #  - git commit -a --amend --no-edit
