@@ -22,7 +22,7 @@ before_deploy:
 #  - git checkout --force master
 #  - git status
   # Aller dans la bonne branche, si exist, autrement elle est créée..
-#  - if [ "$TAG_EXIST" ]; then git checkout "$TAG_TARGET"; else echo "NOT EXIST"; fi
+  - if [ "$TAG_EXIST" ]; then git checkout "$TAG_TARGET"; else echo "NOT EXIST"; fi
 #  - if [ "$TAG_EXIST" ]; then git checkout --force "$TAG_TARGET"; else echo "NOT EXIST"; fi
   
 deploy:
@@ -39,6 +39,6 @@ deploy:
 
     verbose: true
 
-after_deploy:
+#after_deploy:
   # ?..
 #  - git checkout --force "master"
