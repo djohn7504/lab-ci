@@ -9,7 +9,7 @@ branches:
 env:
   global:
     - TAG_TARGET='release-test'
-    - TAG_LIST=`git ls-remote --tags "$TAG_TARGET"`
+    - TAG_LIST=`git ls-remote --tags release-test`
 
 script: echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index.html
 
