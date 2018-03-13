@@ -15,16 +15,17 @@ script: echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index.html
 
 #	si existe pas ?..
 before_deploy:
-#  - git checkout "$TAG_TARGET"					# <-------- aller dans la bonne branche..
+  - git checkout "$TAG_TARGET"					# <-------- aller dans la bonne branche..
+
 #  - if [ git ls-remote --tags "$TAG_TARGET" ];
-  - |
+#  - |
 #   if [ -n `git ls-remote --tags "$TAG_TARGET"` ];
-    if [ -n $TAG_LIST ];
-    then
-      git checkout "$TAG_TARGET";					# <-------- aller dans la bonne branche..
-    else
-      echo "NOT FOUND TAG $TAG_TARGET !!!!!!!!!!!!!!!!";
-    fi
+#    if [ -n $TAG_LIST ];
+#    then
+#      git checkout "$TAG_TARGET";					# <-------- aller dans la bonne branche..
+#    else
+#      echo "NOT FOUND TAG $TAG_TARGET !!!!!!!!!!!!!!!!";
+#    fi
 
 
 
