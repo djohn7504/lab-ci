@@ -22,7 +22,7 @@ before_deploy:
 #  - if [ git ls-remote --tags "$TAG_TARGET" ];
   - |
 #   if [ -n `git ls-remote --tags "$TAG_TARGET"` ];
-    if [ -n $TAG_LIST ];
+    if [ -n "$TAG_LIST" ];
     then
       git checkout "$TAG_TARGET";					# <-------- aller dans la bonne branche..
     else
