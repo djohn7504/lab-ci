@@ -1,3 +1,10 @@
+#	voir: https://ci.appveyor.com/project/djohn7504/lab-ci/settings
+#	ici, on complémente ou écrase les réglages..
+
+#	see: ignore appveyor.yml ..
+#	see: custom file name ..
+
+
 version: 1.0.{build}
 
 branches:
@@ -31,7 +38,5 @@ deploy:
 #  draft: true
 #  prerelease: false
   
-  release: "Release title (Windows)"
-  description: "Release description (Windows)"
-
-#  repository: djohn7504/lab-ci
+#  release: "Release title (Windows)"
+#  description: "Release description (Windows)"
