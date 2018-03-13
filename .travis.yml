@@ -9,17 +9,18 @@ branches:
 env:
   global:
     - TAG_TARGET='release-test'
-    - TAG_SHA1=`git rev-parse release-test`  # print the SHA1 (if not exist, it return the unfound key !)
-    - TAG_LIST=`git rev-list release-test`  # ..
+#   - TAG_SHA1=`git rev-parse release-test`  # print the SHA1 (if not exist, it return the unfound key !)
+    - TAG_EXIST=`git rev-list release-test`  # ..
 
 script: echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index.html
 
 #	si existe pas ?..
 before_deploy:
-#  - git checkout "$TAG_TARGET"					# <-------- aller dans la bonne branche..
-  - echo "$TAG_LIST"
-  - echo "$TAG_SHA1"
-  - if [ "$TAG_SHA1" != "$TAG_TARGET" ]; then git checkout "$TAG_TARGET"; else echo "NOT EXIST"; fi
+# - git checkout "$TAG_TARGET"					# <-------- aller dans la bonne branche..
+  - echo "$TAG_EXIST"
+# - echo "$TAG_SHA1"
+# - if [ "$TAG_SHA1" != "$TAG_TARGET" ]; then git checkout "$TAG_TARGET"; else echo "NOT EXIST"; fi
+  - if [ "$TAG_EXIST" ]; then git checkout "$TAG_TARGET"; else echo "NOT EXIST"; fi
   
 deploy:
   - provider: releases
