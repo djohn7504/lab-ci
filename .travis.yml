@@ -10,16 +10,19 @@ env:
   global:
     - TAG_TARGET='release-test'
 #   - TAG_EXIST=`git rev-list --count --max-count=1 $TAG_TARGET`  # 0 or 1
-    - TAG_EXIST=`git rev-list --count --max-count=1 release-test`  # 0 or 1
+#   - TAG_EXIST=`git rev-list --count --max-count=1 release-test`  # 0 or 1
 
 script: echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index-linux.html
 
 before_deploy:
-#  - git checkout "master"
-  - git status
-#  - git stash
-  - git tag -f "$TAG_TARGET"
-  - git status
+# - git checkout "master"
+# - git status
+# - git stash
+# - git tag --force "$TAG_TARGET"
+  - git config --local user.name "djohn7504"
+  - git config --local user.email "djohn7504@gmail.com"
+  - git tag "$TAG_TARGET"
+# - git status
 #  - git add .
 #  - git commit -a --amend --no-edit
 #  - git checkout --force master
@@ -37,7 +40,7 @@ deploy:
     skip-cleanup: true
     file: deploy/index-linux.html
 
-    tag_name: $TAG_TARGET
+#    tag_name: $TAG_TARGET
 #    target_commitish: $TRAVIS_COMMIT
     overwrite: true
 
