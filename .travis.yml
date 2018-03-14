@@ -20,8 +20,8 @@ before_deploy:
 # - git stash
 # - git config --local user.name "djohn7504"
 # - git config --local user.email "djohn7504@gmail.com"
-  - git tag "$TAG_TARGET"
-# - git tag --force "$TAG_TARGET"
+# - git tag "$TAG_TARGET"
+  - git tag --force "$TAG_TARGET"
 # - git status
 #  - git add .
 #  - git commit -a --amend --no-edit
