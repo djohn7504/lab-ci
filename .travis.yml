@@ -40,8 +40,8 @@ deploy:
     skip-cleanup: true
     file: deploy/index-linux.html
 
-#    tag_name: $TAG_TARGET
-#    target_commitish: $TRAVIS_COMMIT
+    tag_name: $TAG_TARGET
+#   target_commitish: $TRAVIS_COMMIT
     overwrite: true
 
     verbose: true
