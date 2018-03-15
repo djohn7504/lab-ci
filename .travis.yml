@@ -16,11 +16,17 @@ env:
 
 script:
   - echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index-linux.html
-  
+
+befor_deploy:
+  - git config --local user.name "djohn7504"
+  - git config --local user.email "djohn7504@gmail.com"
+  - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+
 deploy:
   - provider: releases
     on:
-      branch: master
+#     branch: master
+      tags: true
     api-key:
       - secure: $GITHUB_TOKEN
     skip-cleanup: true
