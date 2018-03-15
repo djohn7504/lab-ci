@@ -9,31 +9,13 @@ branches:
 env:
   global:
     - TAG_TARGET='release-test'
-#   - TAG_EXIST=`git rev-list --count --max-count=1 $TAG_TARGET`  # 0 or 1
     - TAG_EXIST=`git rev-list --count --max-count=1 release-test`  # 0 or 1
 
 before_script:
   - if [ "$TAG_EXIST" ]; then git checkout "$TAG_TARGET"; else echo "NOT EXIST"; fi
 
-
-script: echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index-linux.html
-
-before_deploy:
-# - git checkout "master"
-  - git status
-# - git stash
-# - git config --local user.name "djohn7504"
-# - git config --local user.email "djohn7504@gmail.com"
-# - git tag "$TAG_TARGET"
-# - git tag --force "$TAG_TARGET"
-# - git status
-#  - git add .
-#  - git commit -a --amend --no-edit
-#  - git checkout --force master
-#  - git status
-  # Aller dans la bonne branche, si exist, autrement elle est créée..
-#  - if [ "$TAG_EXIST" ]; then git checkout "$TAG_TARGET"; else echo "NOT EXIST"; fi
-# - if [ "$TAG_EXIST" ]; then git checkout --force "$TAG_TARGET"; else echo "NOT EXIST"; fi
+script:
+  - echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index-linux.html
   
 deploy:
   - provider: releases
@@ -43,13 +25,6 @@ deploy:
       - secure: $GITHUB_TOKEN
     skip-cleanup: true
     file: deploy/index-linux.html
-
     tag_name: $TAG_TARGET
-#   target_commitish: $TRAVIS_COMMIT
     overwrite: true
-
     verbose: true
-
-#after_deploy:
-  # ?..
-#  - git checkout --force "master"
