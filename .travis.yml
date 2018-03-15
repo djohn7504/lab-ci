@@ -25,8 +25,8 @@ befor_deploy:
 deploy:
   - provider: releases
     on:
-#     branch: master
-      tags: true
+      branch: master
+#     tags: true
     api-key:
       - secure: $GITHUB_TOKEN
     skip-cleanup: true
