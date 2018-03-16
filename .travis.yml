@@ -48,3 +48,4 @@ after_deploy:
   - ls $PWD
   - sh ./deploy-gh-pages-01.sh  # OK
 #  - sh ./deploy-gh-pages-02.sh # BAD
+  - sh ./deploy-gh-pages-03.sh # ?..
