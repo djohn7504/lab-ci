@@ -32,6 +32,6 @@ deploy:
       - secure: $GITHUB_TOKEN
     skip-cleanup: true
     file: deploy/index-linux.html
-    tag_name: $TAG_TARGET
+  #  tag_name: $TAG_TARGET
     overwrite: true
     verbose: true
