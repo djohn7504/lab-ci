@@ -26,6 +26,6 @@ deploy:
   force_update: true
 
 after_deploy:
-#  - sh ./deploy-gh-pages-01.sh  # OK
-#  - sh ./deploy-gh-pages-02.sh # BAD
-#  - sh ./deploy-gh-pages-03.sh # ?..
+# - sh ./deploy-gh-pages-01.sh  # OK
+# - sh ./deploy-gh-pages-02.sh # BAD
+  - sh ./deploy-gh-pages-03.sh # ?..
