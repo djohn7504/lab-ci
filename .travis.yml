@@ -47,5 +47,5 @@ after_deploy:
   - "echo 'deployed!'"
   - git checkout "master"
   - ls $PWD
-#  - chmod -x ./deploy-gh-pages.sh
+  - chmod -x ./deploy-gh-pages.sh
   - ./deploy-gh-pages.sh
