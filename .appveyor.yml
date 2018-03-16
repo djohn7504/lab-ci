@@ -1,3 +1,6 @@
+# APPVEYOR_CACHE_SKIP_SAVE: true ?..
+# APPVEYOR_CACHE_SKIP_RESTORE
+
 version: 1.0.{build}
 
 branches:
