@@ -56,14 +56,15 @@ git config --global user.name "djohn7504"
 echo "===================================="
 # sed -i -- "s/.*$textSearch.*/$textReplace/$sedComportment" "./$targetFile"
   cat index.html | %{$_ -replace ".*Hello Windows.*", "$textReplace"} > index.html
+  cat index.html
 echo "===================================="
   git status
 echo "===================================="
-# git add .
-# git commit -m "Deployed to Github Pages"
-# GITHUB_TOKEN=fe8a4ae5169d802c1b527efa4e6b22349a6e811c
+  git add .
+  git commit -m "Deployed to Github Pages"
+  GITHUB_TOKEN=fe8a4ae5169d802c1b527efa4e6b22349a6e811c
 # git push --force --quiet "https://${GITHUB_TOKEN}@github.com/djohn7504/lab-ci"
-# git push --force --quiet "https://$GITHUB_TOKEN@github.com/djohn7504/lab-ci"
+  git push --force --quiet "https://$GITHUB_TOKEN@github.com/djohn7504/lab-ci"
 
 
 
