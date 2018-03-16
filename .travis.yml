@@ -20,7 +20,8 @@ script:
 befor_deploy:
   - git config --local user.name "djohn7504"
   - git config --local user.email "djohn7504@gmail.com"
-  - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+#  - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+  - git tag $TAG_TARGET
 
 deploy:
   - provider: releases
