@@ -24,16 +24,11 @@ script:
   - echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index-linux.html
 
 befor_deploy:
-#  - git config --local user.name "djohn7504"
-#  - git config --local user.email "djohn7504@gmail.com"
-#  - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
-#  - git tag $TAG_TARGET
 
 deploy:
   - provider: releases
     on:
       branch: master
-#     tags: true
     api-key:
       - secure: $GITHUB_TOKEN
     skip-cleanup: true
@@ -43,9 +38,9 @@ deploy:
     verbose: true
 
 after_deploy:
-  - "echo 'deployed!'"
-  - git checkout "master"
+# - "echo 'deployed!'"
+# - git checkout "master"
   - ls $PWD
-#  - sh ./deploy-gh-pages-01.sh  # OK
-#  - sh ./deploy-gh-pages-02.sh # BAD
-  - sh ./deploy-gh-pages-03.sh # ?..
+# - sh ./deploy-gh-pages-01.sh # init OK
+# - sh ./deploy-gh-pages-02.sh # checkout BAD
+  - sh ./deploy-gh-pages-03.sh # clone OK
