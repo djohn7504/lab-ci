@@ -19,6 +19,7 @@ cd out
 
 
 textSearch="\[linux\]"
+textSearch="Hello Linux"
 textReplace="Hello Linux (build $TRAVIS_BUILD_NUMBER)"
 sedComportment=""
 targetFile="./index.html"
