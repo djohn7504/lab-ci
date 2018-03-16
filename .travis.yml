@@ -38,8 +38,8 @@ deploy:
     verbose: true
 
 after_deploy:
-# - "echo 'deployed!'"
-# - git checkout "master"
+  - "echo 'deployed!'"
+  - git checkout "master"
   - ls $PWD
 # - sh ./deploy-gh-pages-01.sh # init OK
 # - sh ./deploy-gh-pages-02.sh # checkout BAD
