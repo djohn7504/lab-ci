@@ -12,7 +12,7 @@ cd out
 #git init
 #git config user.name ${GIT_NAME}
 #git config user.email ${GIT_EMAIL}
-git checkout "gh-pages"
+git checkout master:gh-pages
 
 cp ../deploy/index-linux.html ./index.html
 
