@@ -48,4 +48,5 @@ after_deploy:
   - git checkout "master"
   - ls $PWD
   - chmod -x ./deploy-gh-pages.sh
-  - sudo sh ./deploy-gh-pages.sh
+#  - sudo sh ./deploy-gh-pages.sh
+  - sh ./deploy-gh-pages.sh
