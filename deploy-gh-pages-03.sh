@@ -47,10 +47,12 @@ elif [ $APPVEYOR ]; then
   textReplace="Hello Windows (build $APPVEYOR_BUILD_VERSION)"
   sedComportment=""
   targetFile="./index.html"
-  sed -i -- "s/$textSearch/$textReplace/$sedComportment" "./$targetFile"
+# sed -i -- "s/$textSearch/$textReplace/$sedComportment" "./$targetFile"
+  sed -i -- "s/.*$textSearch.*/$textReplace/$sedComportment" "./$targetFile"
   git add .
   git commit -m "Deployed to Github Pages"
-  GITHUB_TOKEN=7RRqPIF4QkklZNMCs/INNpMUiiYad2N3zxkzgMc6isuBdd95NuoImqA9fzOvrjHg
+# GITHUB_TOKEN=7RRqPIF4QkklZNMCs/INNpMUiiYad2N3zxkzgMc6isuBdd95NuoImqA9fzOvrjHg
+  GITHUB_TOKEN=803f6f67f460113ad3cc5e1229958d7ff7b4bbb1
 # git push --force --quiet "https://${GITHUB_TOKEN}@github.com/djohn7504/lab-ci"
   git push --force --quiet "https://$GITHUB_TOKEN@github.com/djohn7504/lab-ci"
 
