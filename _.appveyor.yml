@@ -21,7 +21,7 @@ deploy:
   on:
     branch: master
   auth_token:
-    secure: 3RFft0fsygMp5QPhBpHu1x61A6dVBv80R6AcZm4QOlv9ITjQjExnJShw1XS251Ju
+    secure: kO7VTv1Eaoz8h7JS8lZ2KCnd5MoE8hnuUMHvP5KnhrlRAcZiP5MCKlvR/CIbl1qK
   tag: release-test
   force_update: true
 
