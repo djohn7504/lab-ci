@@ -15,7 +15,7 @@ before_script:
   - echo "======================================================"
   - echo "======================================================"
   - echo "======================================================"
-  - chmod -x ./deploy-gh-pages.sh
+#  - chmod -x ./deploy-gh-pages.sh
   - if [ "$TAG_EXIST" ]; then git checkout "$TAG_TARGET"; else echo "NOT EXIST"; fi
 
 script:
@@ -47,6 +47,6 @@ after_deploy:
   - "echo 'deployed!'"
   - git checkout "master"
   - ls $PWD
-  - chmod -x ./deploy-gh-pages.sh
+#  - chmod -x ./deploy-gh-pages.sh
 #  - sudo sh ./deploy-gh-pages.sh
   - sh ./deploy-gh-pages.sh
