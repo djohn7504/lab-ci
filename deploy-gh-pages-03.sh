@@ -43,6 +43,15 @@ elif [ $TRAVIS ] && [ $TRAVIS_OS_NAME = "osx" ]; then
 
 elif [ $APPVEYOR ]; then
   echo "Hello AppVeyor CI, $PLATFORM"
+  
+  
+#  *** Please tell me who you are.
+#  to set your account's default identity.
+#  Omit --global to set the identity only in this repository.
+git config --global user.email "djohn7504@gmail.com"
+git config --global user.name "djohn7504"
+  
+  
   textSearch="Hello Windows"
   textReplace="Hello Windows (build $APPVEYOR_BUILD_VERSION)"
   sedComportment=""
