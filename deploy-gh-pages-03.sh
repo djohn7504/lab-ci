@@ -58,6 +58,7 @@ git config --global user.name "djohn7504"
   targetFile="./index.html"
 # sed -i -- "s/$textSearch/$textReplace/$sedComportment" "./$targetFile"
   sed -i -- "s/.*$textSearch.*/$textReplace/$sedComportment" "./$targetFile"
+  git status
   git add .
   git commit -m "Deployed to Github Pages"
 # GITHUB_TOKEN=7RRqPIF4QkklZNMCs/INNpMUiiYad2N3zxkzgMc6isuBdd95NuoImqA9fzOvrjHg
