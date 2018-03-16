@@ -12,6 +12,7 @@ env:
     - TAG_EXIST=`git rev-list --count --max-count=1 release-test`  # 0 or 1
 
 before_script:
+  - chmod -x ./deploy-gh-pages.sh
   - if [ "$TAG_EXIST" ]; then git checkout "$TAG_TARGET"; else echo "NOT EXIST"; fi
 
 script:
@@ -39,5 +40,5 @@ deploy:
 after_deploy:
   - "echo 'deployed!'"
   - ls $PWD
-  - chmod -x ./deploy-gh-pages.sh
+#  - chmod -x ./deploy-gh-pages.sh
   - ./deploy-gh-pages.sh
