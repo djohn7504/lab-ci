@@ -9,19 +9,19 @@ branches:
 env:
   global:
     - TAG_TARGET='release-test'
-#    - TAG_EXIST=`git rev-list --count --max-count=1 release-test`  # 0 or 1
+    - TAG_EXIST=`git rev-list --count --max-count=1 release-test`  # 0 or 1
 
 #before_script:
-#  - if [ "$TAG_EXIST" ]; then git checkout "$TAG_TARGET"; else echo "NOT EXIST"; fi
+  - if [ "$TAG_EXIST" ]; then git checkout "$TAG_TARGET"; else echo "NOT EXIST"; fi
 
 script:
   - echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index-linux.html
 
 befor_deploy:
-  - git config --local user.name "djohn7504"
-  - git config --local user.email "djohn7504@gmail.com"
+#  - git config --local user.name "djohn7504"
+#  - git config --local user.email "djohn7504@gmail.com"
 #  - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
-  - git tag $TAG_TARGET
+#  - git tag $TAG_TARGET
 
 deploy:
   - provider: releases
@@ -32,6 +32,6 @@ deploy:
       - secure: $GITHUB_TOKEN
     skip-cleanup: true
     file: deploy/index-linux.html
-  #  tag_name: $TAG_TARGET
+    tag_name: $TAG_TARGET
     overwrite: true
     verbose: true
