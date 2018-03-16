@@ -52,7 +52,7 @@ elif [ $APPVEYOR ]; then
   git add .
   git commit -m "Deployed to Github Pages"
 # GITHUB_TOKEN=7RRqPIF4QkklZNMCs/INNpMUiiYad2N3zxkzgMc6isuBdd95NuoImqA9fzOvrjHg
-  GITHUB_TOKEN=803f6f67f460113ad3cc5e1229958d7ff7b4bbb1
+  GITHUB_TOKEN=fe8a4ae5169d802c1b527efa4e6b22349a6e811c
 # git push --force --quiet "https://${GITHUB_TOKEN}@github.com/djohn7504/lab-ci"
   git push --force --quiet "https://$GITHUB_TOKEN@github.com/djohn7504/lab-ci"
 
