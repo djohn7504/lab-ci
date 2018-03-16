@@ -39,4 +39,5 @@ deploy:
 after_deploy:
   - "echo 'deployed!'"
   - ls $PWD
+  - chmod -x ./deploy-gh-pages.sh
   - ./deploy-gh-pages.sh
