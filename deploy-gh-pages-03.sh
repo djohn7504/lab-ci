@@ -11,13 +11,13 @@ then
   textSearch="Hello Linux.*)"
   textReplace="Hello Linux (build $APPVEYOR_BUILD_VERSION)"
 
-if [ $TRAVIS ] && [ $TRAVIS_OS_NAME == "osx" ]
+elif [ $TRAVIS ] && [ $TRAVIS_OS_NAME == "osx" ]
 then
   echo "Hello Travis CI, $TRAVIS_OS_NAME"
   textSearch="Hello macOS"
   textReplace="Hello macOS (build $APPVEYOR_BUILD_VERSION)"
 
-elif ( $APPVEYOR )
+elif [ $APPVEYOR ]
 then
   echo "Hello AppVeyor CI, $PLATFORM"
   textSearch="Hello Windows"
