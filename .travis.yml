@@ -11,7 +11,7 @@ env:
     - TAG_TARGET='release-test'
     - TAG_EXIST=`git rev-list --count --max-count=1 release-test`  # 0 or 1
 
-#before_script:
+before_script:
   - if [ "$TAG_EXIST" ]; then git checkout "$TAG_TARGET"; else echo "NOT EXIST"; fi
 
 script:
