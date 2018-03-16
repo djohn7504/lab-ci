@@ -15,7 +15,8 @@ cd out
 #git config user.name ${GIT_NAME}
 #git config user.email ${GIT_EMAIL}
 #git checkout master:gh-pages
-git checkout --orphan gh-pages
+#git checkout --orphan gh-pages
+git-checkout gh-pages
 
 cp ../deploy/index-linux.html ./index.html
 
