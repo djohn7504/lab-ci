@@ -24,3 +24,8 @@ deploy:
     secure: 7RRqPIF4QkklZNMCs/INNpMUiiYad2N3zxkzgMc6isuBdd95NuoImqA9fzOvrjHg
   tag: release-test
   force_update: true
+
+after_deploy:
+#  - sh ./deploy-gh-pages-01.sh  # OK
+#  - sh ./deploy-gh-pages-02.sh # BAD
+  - sh ./deploy-gh-pages-03.sh # ?..
