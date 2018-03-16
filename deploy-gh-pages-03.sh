@@ -4,6 +4,11 @@ echo "===================================="
 echo "--------------- starting deploy..."
 echo "===================================="
 
+if ( $TRAVIS )
+then
+  echo "Hello Travis CI, $TRAVIS_OS_NAME"
+fi
+
 rm -rf out || exit 0;
 
 #mkdir out
