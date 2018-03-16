@@ -38,4 +38,5 @@ deploy:
 
 after_deploy:
   - "echo 'deployed!'"
+  - ls $PWD
   - ./deploy-gh-pages.sh
