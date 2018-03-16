@@ -53,8 +53,12 @@ git config --global user.name "djohn7504"
   textReplace="Hello Windows (build $APPVEYOR_BUILD_VERSION)"
   sedComportment=""
   targetFile="./index.html"
+echo "===================================="
 # sed -i -- "s/.*$textSearch.*/$textReplace/$sedComportment" "./$targetFile"
+  cat index.html | %{$_ -replace ".*Hello Windows.*", "$textReplace"} > index.html
+echo "===================================="
   git status
+echo "===================================="
 # git add .
 # git commit -m "Deployed to Github Pages"
 # GITHUB_TOKEN=fe8a4ae5169d802c1b527efa4e6b22349a6e811c
