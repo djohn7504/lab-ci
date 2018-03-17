@@ -37,7 +37,7 @@ after_deploy:
 # - ps: rm -rf out
 # - cmd: rmdir out
   - ps: ls
-  - ps: exit 0
+# - ps: exit 0
   - ps: git clone --branch "gh-pages" https://github.com/djohn7504/lab-ci.git "out"
   - ps: cd out
   - ps: echo "Hello Windows (build $APPVEYOR_BUILD_VERSION)" >> index.html
