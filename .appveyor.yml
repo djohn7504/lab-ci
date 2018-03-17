@@ -30,9 +30,10 @@ after_deploy:
 # - sh ./deploy-gh-pages-02.sh # BAD
 # - sh ./deploy-gh-pages-03.sh # ?..
 
-  - ps: git config --global user.email "djohn7504@gmail.com"
-  - ps: git config --global user.name "djohn7504"
-  - ps: git config --global credential.helper wincred
+  - cmd: git config --global user.email "djohn7504@gmail.com"
+  - cmd: git config --global user.name "djohn7504"
+  - cmd: git config --global credential.helper wincred
+  - cmd: git --config credentials.helper cache
 # - ps: rm -rf out || exit 0;
 # - ps: rm -rf out
 # - cmd: rmdir out
