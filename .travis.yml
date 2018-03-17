@@ -42,28 +42,18 @@ script:
 #before_script:
 after_script:
   - echo "======================================================"
-  - ls
-  - echo "======================================================"
 #  - ls $TRAVIS_BUILD_DIR
   - echo "======================================================"
-#  - git ls-remote --tags 'release-test'
   - git ls-remote --exit-code --tags origin release-test
-
   - echo "======================================================"
-#  - git rev-list --count --max-count=1 release-test  # 0 or 1
-#  - git checkout master &&
-#  - git checkout master
-#  - git checkout release-test
-#  - git checkout tags/release-test      # BAD if depth: 2
-  - echo "======================================================"
-#  - git tag --list                    # BAD if depth: 2
   - echo "IS_RELEASE_TEST_EXIST:"
   - echo "$IS_RELEASE_TEST_EXIST"
+  - echo chrlen=${#IS_RELEASE_TEST_EXIST}
   - echo "======================================================"
   - if [ $(git ls-remote --exit-code --tags origin release-test) ]; then \
       echo "OK exist"; \
     else \
       echo "NOT exist !!!"; \
       exit 1; \
-    fi
+    fi \
   - echo "======================================================"
