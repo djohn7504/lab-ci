@@ -10,9 +10,10 @@ echo "--------------- $(uname)"
 echo "===================================="
 
 
-
-#if git ls-remote --exit-code --tags origin release-test >/dev/null 2>&1 ; then
-if [[ `git ls-remote --exit-code --tags origin release-test` ]]; then
+# OK
+if git ls-remote --exit-code --tags origin release-test >/dev/null 2>&1 ; then
+# BAD
+#if [[ `git ls-remote --exit-code --tags origin release-test` ]]; then
   echo "OK exist";
 else
   echo "NOT exist !!!";
@@ -20,8 +21,9 @@ fi
 
 
 
+echo "===================================="
 
 # To make it create such a tag if it does not yet exist:
-#git fetch origin refs/tags/release-test:refs/tags/release-test
-#git status
-#ls $TRAVIS_BUILD_DIR
+git fetch origin refs/tags/release-test:refs/tags/release-test
+git status
+ls $TRAVIS_BUILD_DIR
