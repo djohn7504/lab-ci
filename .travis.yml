@@ -3,8 +3,8 @@ sudo: false
 dist: trusty
 
 git:
-# depth: 2
-  depth: 3000         # !!!
+  depth: 2
+# depth: 3000         # !!!
 
 
 #             *** IMPORTANT ****
@@ -17,6 +17,7 @@ git:
 #             Il ne faut donc pas s'y fier, pour des opération locale, si la profondeur est insufisante !
 #             ex: git tag --list    -> peut être vide
 #             ex: git checkout tags/release-test
+
 
 env:
     global:
@@ -61,8 +62,8 @@ after_script:
   - echo "======================================================"
   - if [ $(git ls-remote --exit-code --tags origin release-test) ]; then \
       echo "OK exist"; \
-    else
+    else \
       echo "NOT exist !!!"; \
-      exit 1;
+      exit 1; \
     fi
   - echo "======================================================"
