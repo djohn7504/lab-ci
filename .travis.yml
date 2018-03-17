@@ -20,7 +20,8 @@ after_script:
   - ls $TRAVIS_BUILD_DIR
   - echo "======================================================"
 #  - git rev-list --count --max-count=1 release-test  # 0 or 1
-  - git checkout master &&
+#  - git checkout master &&
+  - git checkout release-test &&
     git tag --list
   - echo "======================================================"
   - git ls-remote
