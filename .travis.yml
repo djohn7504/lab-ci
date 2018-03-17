@@ -27,7 +27,8 @@ env:
         # or check if we are on a particular branch:
 #       - IS_RELEASE=$(git ls-remote origin | grep "$TRAVIS_COMMIT\s\+refs/heads/release$")
 
-        - IS_RELEASE_TEST_EXIST=$(git ls-remote --exit-code --tags origin release-test)
+#        - IS_RELEASE_TEST_EXIST=$(git ls-remote --exit-code --tags origin release-test)
+        - IS_RELEASE_TEST_EXIST=$(git ls-remote --exit-code --tags origin DUMMY)
 
 branches:
   only:
@@ -54,6 +55,7 @@ after_script:
       echo "OK exist"; \
     else \
       echo "NOT exist !!!"; \
-    fi \
+    fi;
+#    fi \
   - echo "======================================================"
 #      exit 1; \
