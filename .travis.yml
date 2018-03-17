@@ -54,6 +54,6 @@ after_script:
       echo "OK exist"; \
     else \
       echo "NOT exist !!!"; \
-      exit 1; \
     fi \
   - echo "======================================================"
+#      exit 1; \
