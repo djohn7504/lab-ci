@@ -28,7 +28,8 @@ env:
 #       - IS_RELEASE=$(git ls-remote origin | grep "$TRAVIS_COMMIT\s\+refs/heads/release$")
 
 #        - IS_RELEASE_TEST_EXIST=$(git ls-remote --exit-code --tags origin release-test)
-        - IS_RELEASE_TEST_EXIST=$(git ls-remote --exit-code --tags origin DUMMY)
+#        - IS_RELEASE_TEST_EXIST=$(git ls-remote --exit-code --tags origin DUMMY)
+        - IS_RELEASE_TEST_EXIST=${#git ls-remote --exit-code --tags origin DUMMY}   # 0, >0 
 
 branches:
   only:
