@@ -3,15 +3,19 @@ sudo: false
 dist: trusty
 
 git:
-  depth: 2
-# depth: 3000         # !!!
+# depth: 2
+  depth: 3000         # !!!
 
 
 #             *** IMPORTANT ****
 #             
-#             Travis CI fait un clone du dernier commit, avec une profondeur paramétrable.
-#             Il ne faut donc pas s'y fier, pour retrouver, par exemple, l'existance d'un tag !
-#             ex: git tag --list    -> can return null
+#             Travis CI fait un clone, avec une profondeur paramétrable.
+#             ex: git clone --depth=2 --branch=master ..
+#             Puis, fait un checkout du dernier commit.
+#             ex: git checkout -qf 67890fd5bb81dba740fa3ea7b7c3442e89c4bced
+#
+#             Il ne faut donc pas s'y fier, pour par exemple lister les tags !
+#             ex: git tag --list    -> peut être vide, si la profondeur est insufisante !!!!!!!!!!!
 
 
 branches:
@@ -33,6 +37,7 @@ after_script:
   - echo "======================================================"
 #  - git ls-remote --tags 'release-test'
   - git ls-remote --exit-code --tags origin release-test
+
   - echo "======================================================"
 #  - git rev-list --count --max-count=1 release-test  # 0 or 1
 #  - git checkout master &&
@@ -40,5 +45,5 @@ after_script:
 #  - git checkout release-test
   - git checkout tags/release-test
   - echo "======================================================"
-  - git tag --list
+  - git tag --list          # BAD
   - echo "======================================================"
