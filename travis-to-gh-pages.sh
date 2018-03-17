@@ -11,8 +11,8 @@ echo "===================================="
 
 
 
-#if [ $(git ls-remote --exit-code --tags origin release-test) ]; then
-if git ls-remote --exit-code --tags origin release-test >/dev/null 2>&1 ; then
+#if git ls-remote --exit-code --tags origin release-test >/dev/null 2>&1 ; then
+if [[ `git ls-remote --exit-code --tags origin release-test` ]]; then
   echo "OK exist";
 else
   echo "NOT exist !!!";
