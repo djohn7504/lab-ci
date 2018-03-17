@@ -48,6 +48,8 @@ elif [ $APPVEYOR ]; then
 #  Omit --global to set the identity only in this repository.
 git config --global user.email "djohn7504@gmail.com"
 git config --global user.name "djohn7504"
+# ?..
+git remote set-url remote-name https://djohn7504:4z4nwbxb@github.com/<username>/<repo_name>.git
   
   textSearch="Hello Windows"
   textReplace="Hello Windows (build $APPVEYOR_BUILD_VERSION)"
@@ -69,8 +71,8 @@ echo "===================================="
   git status
 echo "===================================="
   GITHUB_TOKEN=fe8a4ae5169d802c1b527efa4e6b22349a6e811c
-  git push --force --quiet "https://${GITHUB_TOKEN}@github.com/djohn7504/lab-ci"
-# git push --force --quiet "https://$GITHUB_TOKEN@github.com/djohn7504/lab-ci"
+# git push --force --quiet "https://${GITHUB_TOKEN}@github.com/djohn7504/lab-ci"
+  git push --force --quiet "https://$GITHUB_TOKEN@github.com/djohn7504/lab-ci"
 
 
 
