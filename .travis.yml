@@ -49,13 +49,13 @@ after_script:
   - echo "======================================================"
   - echo "IS_RELEASE_TEST_EXIST:"
   - echo "$IS_RELEASE_TEST_EXIST"
-  - echo chrlen=${#IS_RELEASE_TEST_EXIST}
+  - echo chrlen=${#IS_RELEASE_TEST_EXIST}         # 0, >0
   - echo "======================================================"
-  - if [ $(git ls-remote --exit-code --tags origin release-test) ]; then \
-      echo "OK exist"; \
-    else \
-      echo "NOT exist !!!"; \
-    fi;
-#    fi \
+  - |
+    if [ $(git ls-remote --exit-code --tags origin release-test) ]; then
+      echo "OK exist";
+    else
+      echo "NOT exist !!!";
+      exit 1;
+    fi
   - echo "======================================================"
-#      exit 1; \
