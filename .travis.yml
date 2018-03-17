@@ -59,6 +59,7 @@ after_success:
   #  else \
   #    echo "NOT exist !!!"; \
   #  fi;
-  - sh travis-to-gh-pages.sh
+#  - sh travis-to-gh-pages.sh
+  - sh travis-to-releases.sh
   - echo "======================================================"
 #      exit 1;
