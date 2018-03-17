@@ -28,10 +28,15 @@ deploy:
 after_deploy:
 # - sh ./deploy-gh-pages-01.sh  # OK
 # - sh ./deploy-gh-pages-02.sh # BAD
-  - sh ./deploy-gh-pages-03.sh # ?..
+# - sh ./deploy-gh-pages-03.sh # ?..
+
   - ps: git config --global user.email "djohn7504@gmail.com"
   - ps: git config --global user.name "djohn7504"
   - ps: git config --global credential.helper wincred
+  - ps: rm -rf out || exit 0;
+  - ps: git clone --branch "gh-pages" https://github.com/djohn7504/lab-ci.git "out"
+  - ps: cd out
+  - ps: echo "Hello Windows (build $APPVEYOR_BUILD_VERSION)" >> index.html
   - ps: git add .
   - ps: git commit -m "Deployed to Github Pages"
   - ps: git push --force --quiet "https://fe8a4ae5169d802c1b527efa4e6b22349a6e811c@github.com/djohn7504/lab-ci"
