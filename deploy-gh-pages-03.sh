@@ -50,8 +50,8 @@ elif [ $APPVEYOR ]; then
 #  *** Please tell me who you are.
 #  to set your account's default identity.
 #  Omit --global to set the identity only in this repository.
-git config --global user.email "$userEmail"
-git config --global user.name "$userName"
+#git config --global user.email "$userEmail"
+#git config --global user.name "$userName"
 # ?..
 #git remote set-url https://$userName:$userPass@github.com/$userName/lab-ci.git
 #git config --global credential.helper wincred
@@ -72,8 +72,8 @@ echo "===================================="
 echo "===================================="
 # git status
 echo "===================================="
-  git add .
-  git commit -m "Deployed to Github Pages"
+# git add .
+# git commit -m "Deployed to Github Pages"
 # git status
 echo "===================================="
 # GITHUB_TOKEN="fe8a4ae5169d802c1b527efa4e6b22349a6e811c"
