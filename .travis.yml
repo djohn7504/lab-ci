@@ -14,9 +14,19 @@ git:
 #             Puis, fait un checkout du dernier commit.
 #             ex: git checkout -qf 67890fd5bb81dba740fa3ea7b7c3442e89c4bced
 #
-#             Il ne faut donc pas s'y fier, pour par exemple lister les tags !
-#             ex: git tag --list    -> peut être vide, si la profondeur est insufisante !!!!!!!!!!!
+#             Il ne faut donc pas s'y fier, pour des opération locale, si la profondeur est insufisante !
+#             ex: git tag --list    -> peut être vide
+#             ex: git checkout tags/release-test
 
+env:
+    global:
+        # get all the branches referencing this commit
+#       - REAL_BRANCH=$(git ls-remote origin | sed -n "\|$TRAVIS_COMMIT\s\+refs/heads/|{s///p}")
+
+        # or check if we are on a particular branch:
+#       - IS_RELEASE=$(git ls-remote origin | grep "$TRAVIS_COMMIT\s\+refs/heads/release$")
+
+        - IS_RELEASE_TEST_EXIST=$(git ls-remote --exit-code --tags origin release-test)
 
 branches:
   only:
@@ -43,7 +53,16 @@ after_script:
 #  - git checkout master &&
 #  - git checkout master
 #  - git checkout release-test
-  - git checkout tags/release-test
+#  - git checkout tags/release-test      # BAD if depth: 2
   - echo "======================================================"
-  - git tag --list          # BAD
+#  - git tag --list                    # BAD if depth: 2
+  - echo "IS_RELEASE_TEST_EXIST:"
+  - echo "$IS_RELEASE_TEST_EXIST"
+  - echo "======================================================"
+  - if []; then \
+      echo "OK"; \
+    else
+      echo "BAD"; \
+      exit 1;
+    fi
   - echo "======================================================"
