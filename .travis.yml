@@ -59,10 +59,10 @@ after_script:
   - echo "IS_RELEASE_TEST_EXIST:"
   - echo "$IS_RELEASE_TEST_EXIST"
   - echo "======================================================"
-  - if []; then \
-      echo "OK"; \
+  - if [ $(git ls-remote --exit-code --tags origin release-test) ]; then \
+      echo "OK exist"; \
     else
-      echo "BAD"; \
+      echo "NOT exist !!!"; \
       exit 1;
     fi
   - echo "======================================================"
