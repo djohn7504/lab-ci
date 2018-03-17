@@ -53,7 +53,7 @@ elif [ $APPVEYOR ]; then
 git config --global user.email "$userEmail"
 git config --global user.name "$userName"
 # ?..
-git remote set-url remote-name https://$userName:$userPass@github.com/$userName/lab-ci.git
+git remote set-url lab-ci https://$userName:$userPass@github.com/$userName/lab-ci.git
   
   textSearch="Hello Windows"
   textReplace="Hello Windows (build $APPVEYOR_BUILD_VERSION)"
