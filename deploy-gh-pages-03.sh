@@ -54,6 +54,7 @@ git config --global user.email "$userEmail"
 git config --global user.name "$userName"
 # ?..
 #git remote set-url lab-ci https://$userName:$userPass@github.com/$userName/lab-ci.git
+git config --global credential.helper wincred
   
   textSearch="Hello Windows"
   textReplace="Hello Windows (build $APPVEYOR_BUILD_VERSION)"
@@ -62,7 +63,7 @@ echo "===================================="
   sedComportment=""
   targetFile="./index.html"
 echo "===================================="
-  echo "$textReplace" > index.html
+  echo "$textReplace" >> index.html
   cat index.html
 echo "===================================="
 # sed -i -- "s/.*$textSearch.*/$textReplace/$sedComportment" "./$targetFile"
