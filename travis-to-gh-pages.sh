@@ -6,7 +6,7 @@ set -e
 echo "===================================="
 echo "--------------- starting deploy..."
 echo "--------------- $(uname)"
-# Darwin, ?..
+# Darwin, Linux, ?..
 echo "===================================="
 
 
@@ -22,6 +22,7 @@ echo "===================================="
 
 # To make it create such a tag if it does not yet exist:
 # git fetch origin refs/tags/1.0.0:refs/tags/1.0.0
+git fetch origin refs/tags/release-test:refs/tags/release-test
 
 
-# ls $TRAVIS_BUILD_DIR
+ls $TRAVIS_BUILD_DIR
