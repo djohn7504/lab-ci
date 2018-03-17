@@ -53,12 +53,12 @@ elif [ $APPVEYOR ]; then
 git config --global user.email "$userEmail"
 git config --global user.name "$userName"
 # ?..
-git remote set-url lab-ci https://$userName:$userPass@github.com/$userName/lab-ci.git
+#git remote set-url lab-ci https://$userName:$userPass@github.com/$userName/lab-ci.git
   
   textSearch="Hello Windows"
   textReplace="Hello Windows (build $APPVEYOR_BUILD_VERSION)"
 echo "===================================="
-  echo $textReplace
+  echo "$textReplace"
   sedComportment=""
   targetFile="./index.html"
 echo "===================================="
@@ -66,13 +66,13 @@ echo "===================================="
 echo "===================================="
 # sed -i -- "s/.*$textSearch.*/$textReplace/$sedComportment" "./$targetFile"
 # ps: cat index.html | %{$_ -replace ".*Hello Windows.*", "$textReplace"} > index.html
-  cat index.html
+# cat index.html
 echo "===================================="
   git status
 echo "===================================="
   git add .
   git commit -m "Deployed to Github Pages"
-  git status
+# git status
 echo "===================================="
   GITHUB_TOKEN="fe8a4ae5169d802c1b527efa4e6b22349a6e811c"
 # git push --force --quiet "https://${GITHUB_TOKEN}@github.com/djohn7504/lab-ci"
