@@ -21,7 +21,7 @@ deploy:
   on:
     branch: master
   auth_token:
-    secure: kO7VTv1Eaoz8h7JS8lZ2KCnd5MoE8hnuUMHvP5KnhrlRAcZiP5MCKlvR/CIbl1qK
+    secure: QDeZBVJ2SrzlmrxTAnPKYhCTH4xDG1dUsOS10tHe547XZePWgyf+wBeoBHkc1me3
   tag: release-test
   force_update: true
 
@@ -45,4 +45,4 @@ after_deploy:
   - ps: echo "Hello Windows (build $APPVEYOR_BUILD_VERSION)" >> index.html
   - cmd: git add .
   - cmd: git commit -m "Deployed to Github Pages"
-  - cmd: git push --force --quiet "https://a5e89870d12698c7c82b23ca287bb41e302e16fe@github.com/djohn7504/lab-ci"
+  - cmd: git push --force --quiet "https://ef0e5117cf6eb548f6aa63cd09c74331a2a9b896@github.com/djohn7504/lab-ci"

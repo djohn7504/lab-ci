@@ -23,7 +23,7 @@ if [ $TRAVIS ] && [ $TRAVIS_OS_NAME = "linux" ]; then
   sed -i -- "s/.*$textSearch.*/$textReplace/$sedComportment" "./$targetFile"
   git add .
   git commit -m "Deployed to Github Pages"
-  git push --force --quiet "https://${GITHUB_TOKEN}@github.com/djohn7504/lab-ci"
+  git push --force --quiet "https://${GITHUB_TOKEN_2}@github.com/djohn7504/lab-ci"
 
 
 
@@ -36,7 +36,7 @@ elif [ $TRAVIS ] && [ $TRAVIS_OS_NAME = "osx" ]; then
   sed -i "" "s/.*$textSearch.*/$textReplace/$sedComportment" "./$targetFile"
   git add .
   git commit -m "Deployed to Github Pages"
-  git push --force --quiet "https://${GITHUB_TOKEN}@github.com/djohn7504/lab-ci"
+  git push --force --quiet "https://${GITHUB_TOKEN_2}@github.com/djohn7504/lab-ci"
 
 
 
@@ -77,8 +77,8 @@ echo "===================================="
 # git status
 echo "===================================="
 # GITHUB_TOKEN="fe8a4ae5169d802c1b527efa4e6b22349a6e811c"
-# git push --force --quiet "https://${GITHUB_TOKEN}@github.com/djohn7504/lab-ci"
-# git push --force --quiet "https://$GITHUB_TOKEN@github.com/$userName/lab-ci"
+# git push --force --quiet "https://${GITHUB_TOKEN_2}@github.com/djohn7504/lab-ci"
+# git push --force --quiet "https://$GITHUB_TOKEN_2@github.com/$userName/lab-ci"
 
 
 
