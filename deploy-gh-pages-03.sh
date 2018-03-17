@@ -62,13 +62,14 @@ echo "===================================="
   sedComportment=""
   targetFile="./index.html"
 echo "===================================="
+  echo "$textReplace" > index.html
   cat index.html
 echo "===================================="
 # sed -i -- "s/.*$textSearch.*/$textReplace/$sedComportment" "./$targetFile"
 # ps: cat index.html | %{$_ -replace ".*Hello Windows.*", "$textReplace"} > index.html
 # cat index.html
 echo "===================================="
-  git status
+# git status
 echo "===================================="
   git add .
   git commit -m "Deployed to Github Pages"
