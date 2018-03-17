@@ -14,3 +14,5 @@ script:
   - echo "======================================================"
 #  - git rev-list --count --max-count=1 release-test  # 0 or 1
   - git tag --list
+  - echo "======================================================"
+  - git ls-remote
