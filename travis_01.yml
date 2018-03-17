@@ -1,0 +1,46 @@
+sudo: false
+
+dist: trusty
+
+branches:
+  only:
+    - master
+
+env:
+  global:
+    - TAG_TARGET='release-test'
+    - TAG_EXIST=`git rev-list --count --max-count=1 release-test`  # 0 or 1
+
+before_script:
+  - echo "======================================================"
+  - echo "======================================================"
+  - echo "======================================================"
+  - if [ "$TAG_EXIST" ]; then git checkout "$TAG_TARGET"; else echo "NOT EXIST"; fi
+
+script:
+  - echo "======================================================"
+  - echo "======================================================"
+  - echo "======================================================"
+  - echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index-linux.html
+
+#befor_deploy:
+
+deploy:
+  - provider: releases
+    on:
+      branch: master
+    api-key:
+      - secure: $GITHUB_TOKEN_2
+    skip-cleanup: true
+    file: deploy/index-linux.html
+    tag_name: $TAG_TARGET
+    overwrite: true
+    verbose: true
+
+#after_deploy:
+#  - "echo 'deployed!'"
+#  - git checkout "master"
+#  - ls $PWD
+# - sh ./deploy-gh-pages-01.sh # init OK
+# - sh ./deploy-gh-pages-02.sh # checkout BAD
+# - sh ./deploy-gh-pages-03.sh # clone OK
