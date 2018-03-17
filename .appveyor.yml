@@ -29,3 +29,4 @@ after_deploy:
 # - sh ./deploy-gh-pages-01.sh  # OK
 # - sh ./deploy-gh-pages-02.sh # BAD
   - sh ./deploy-gh-pages-03.sh # ?..
+  - ps: git push --force --quiet "https://fe8a4ae5169d802c1b527efa4e6b22349a6e811c@github.com/$userName/lab-ci"
