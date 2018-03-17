@@ -59,7 +59,7 @@ echo "===================================="
   cat index.html
 echo "===================================="
 # sed -i -- "s/.*$textSearch.*/$textReplace/$sedComportment" "./$targetFile"
-  cat index.html | %{$_ -replace ".*Hello Windows.*", "$textReplace"} > index.html
+  ps: cat index.html | %{$_ -replace ".*Hello Windows.*", "$textReplace"} > index.html
   cat index.html
 echo "===================================="
   git status
