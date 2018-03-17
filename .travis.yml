@@ -24,8 +24,9 @@ after_script:
   - echo "======================================================"
 #  - git rev-list --count --max-count=1 release-test  # 0 or 1
 #  - git checkout master &&
-  - git checkout master
+#  - git checkout master
 #  - git checkout release-test
+  - git checkout tags/release-test -b master
   - echo "======================================================"
   - git tag --list
   - echo "======================================================"
