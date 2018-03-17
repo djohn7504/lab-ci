@@ -2,6 +2,9 @@ sudo: false
 
 dist: trusty
 
+git:
+  depth: 3000
+
 branches:
   only:
     - master
