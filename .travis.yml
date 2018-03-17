@@ -29,7 +29,7 @@ env:
 
 #        - IS_RELEASE_TEST_EXIST=$(git ls-remote --exit-code --tags origin release-test)
 #        - IS_RELEASE_TEST_EXIST=$(git ls-remote --exit-code --tags origin DUMMY)
-        - IS_RELEASE_TEST_EXIST=${#git ls-remote --exit-code --tags origin DUMMY}   # 0, >0 
+        - IS_RELEASE_TEST_EXIST=${#git ls-remote --exit-code --tags origin release-test}   # 0, >0 
 
 branches:
   only:
@@ -42,7 +42,8 @@ script:
 
 #before_cache:
 #before_script:
-after_script:
+#after_script:
+after_success:
   - echo "======================================================"
 #  - ls $TRAVIS_BUILD_DIR
   - echo "======================================================"
@@ -52,8 +53,7 @@ after_script:
   - echo "$IS_RELEASE_TEST_EXIST"
   - echo chrlen=${#IS_RELEASE_TEST_EXIST}         # 0, >0
   - echo "======================================================"
-  - |
-    if [ $(git ls-remote --exit-code --tags origin release-test) ]; then
+  - if [ $(git ls-remote --exit-code --tags origin release-test) ]; then
       echo "OK exist";
     else
       echo "NOT exist !!!";
