@@ -3,7 +3,16 @@ sudo: false
 dist: trusty
 
 git:
-  depth: 3000
+  depth: 2
+# depth: 3000         # !!!
+
+
+#             *** IMPORTANT ****
+#             
+#             Travis CI fait un clone du dernier commit, avec une profondeur paramétrable.
+#             Il ne faut donc pas s'y fier, pour retrouver, par exemple, l'existance d'un tag !
+#             ex: git tag --list    -> can return null
+
 
 branches:
   only:
