@@ -36,6 +36,7 @@ after_deploy:
 # - ps: rm -rf out || exit 0;
 # - ps: rm -rf out
 # - cmd: rmdir out
+  - cmd: mkdir "out"
   - ps: ls
 # - ps: exit 0
   - ps: git clone --branch "gh-pages" https://github.com/djohn7504/lab-ci.git "out"
