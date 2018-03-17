@@ -26,7 +26,7 @@ after_script:
 #  - git checkout master &&
 #  - git checkout master
 #  - git checkout release-test
-  - git checkout tags/release-test -b master
+  - git checkout tags/release-test
   - echo "======================================================"
   - git tag --list
   - echo "======================================================"
