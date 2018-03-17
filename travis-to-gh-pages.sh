@@ -5,7 +5,7 @@ set -e
 
 echo "===================================="
 echo "--------------- starting deploy..."
-echo "--------------- "uname
+echo "--------------- $(uname)""
 echo "===================================="
 
 #if [ $(git ls-remote --exit-code --tags origin release-test) ]; then
