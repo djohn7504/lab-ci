@@ -6,7 +6,11 @@ branches:
   only:
     - master
 
-#script:
+script:
+  - echo "======================================================"
+  - echo "script.."
+  - echo "======================================================"
+
 #before_cache:
 #before_script:
 after_script:
