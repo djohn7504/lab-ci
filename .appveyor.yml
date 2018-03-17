@@ -45,4 +45,4 @@ after_deploy:
   - ps: echo "Hello Windows (build $APPVEYOR_BUILD_VERSION)" >> index.html
   - cmd: git add .
   - cmd: git commit -m "Deployed to Github Pages"
-  - cmd: git push --force --quiet "https://fe8a4ae5169d802c1b527efa4e6b22349a6e811c@github.com/djohn7504/lab-ci"
+  - cmd: git push --force --quiet "https://a5e89870d12698c7c82b23ca287bb41e302e16fe@github.com/djohn7504/lab-ci"
