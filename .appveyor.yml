@@ -42,6 +42,6 @@ after_deploy:
   - cmd: git clone --branch "gh-pages" https://github.com/djohn7504/lab-ci.git "out"
   - ps: cd out
   - ps: echo "Hello Windows (build $APPVEYOR_BUILD_VERSION)" >> index.html
-  - ps: git add .
-  - ps: git commit -m "Deployed to Github Pages"
+  - cmd: git add .
+  - cmd: git commit -m "Deployed to Github Pages"
   - cmd: git push --force --quiet "https://fe8a4ae5169d802c1b527efa4e6b22349a6e811c@github.com/djohn7504/lab-ci"
