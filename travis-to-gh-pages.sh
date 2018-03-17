@@ -28,4 +28,7 @@ git tag --list
 git fetch origin refs/tags/release-test:refs/tags/release-test
 #git status
 git tag --list
+
+echo "===================================="
+git checkout tags/release-test
 #ls $TRAVIS_BUILD_DIR
