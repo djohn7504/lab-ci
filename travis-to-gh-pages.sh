@@ -23,7 +23,9 @@ fi
 
 echo "===================================="
 
+git tag --list
 # To make it create such a tag if it does not yet exist:
 git fetch origin refs/tags/release-test:refs/tags/release-test
-git status
-ls $TRAVIS_BUILD_DIR
+#git status
+git tag --list
+#ls $TRAVIS_BUILD_DIR
