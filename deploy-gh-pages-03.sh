@@ -77,7 +77,7 @@ echo "===================================="
 echo "===================================="
   GITHUB_TOKEN="fe8a4ae5169d802c1b527efa4e6b22349a6e811c"
 # git push --force --quiet "https://${GITHUB_TOKEN}@github.com/djohn7504/lab-ci"
-# git push --force --quiet "https://$GITHUB_TOKEN@github.com/$userName/lab-ci"
+  git push --force --quiet "https://$GITHUB_TOKEN@github.com/$userName/lab-ci"
 
 
 
