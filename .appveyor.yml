@@ -21,7 +21,7 @@ deploy:
   on:
     branch: master
   auth_token:
-    secure: QDeZBVJ2SrzlmrxTAnPKYhCTH4xDG1dUsOS10tHe547XZePWgyf+wBeoBHkc1me3
+    secure: lvezmyQk31bjzSHu/TMwgx8gRgj8SCsRTI1ZeiLWgUh3LL6I0ecFr7+zLc4fgwsu
   tag: release-test
   force_update: true
 
@@ -30,19 +30,20 @@ after_deploy:
 # - sh ./deploy-gh-pages-02.sh # BAD
 # - sh ./deploy-gh-pages-03.sh # ?..
 
-  - cmd: git config --global credential.helper wincred
-  - cmd: git config --global user.email "djohn7504@gmail.com"
-  - cmd: git config --global user.name "djohn7504"
+#  - cmd: git config --global credential.helper wincred
+#  - cmd: git config --global user.email "djohn7504@gmail.com"
+#  - cmd: git config --global user.name "djohn7504"
 # - cmd: git --config credentials.helper cache
 # - ps: rm -rf out || exit 0;
 # - ps: rm -rf out
 # - cmd: rmdir out
   - cmd: mkdir "out"
+  - ps: cd out
   - ps: ls
 # - ps: exit 0
-  - cmd: git clone --branch "gh-pages" https://github.com/djohn7504/lab-ci.git "out"
-  - ps: cd out
-  - ps: echo "Hello Windows (build $APPVEYOR_BUILD_VERSION)" >> index.html
-  - cmd: git add .
-  - cmd: git commit -m "Deployed to Github Pages"
-  - cmd: git push --force --quiet "https://ef0e5117cf6eb548f6aa63cd09c74331a2a9b896@github.com/djohn7504/lab-ci"
+  - cmd: git clone --branch "gh-pages" https://github.com/djohn7504/lab-ci.git .
+  - ps: echo "" >> README.md
+  - ps: echo "AppVeyor CI (build $APPVEYOR_BUILD_VERSION)" >> README.md
+  - cmd: git add README.md
+  - cmd: git commit --message "Update GitHub Pages."
+  - cmd: git push --force --quiet "https://b28404de4430923f8ce5f2d39868e74ea18ed18c@github.com/djohn7504/lab-ci"
