@@ -20,3 +20,6 @@ echo "--------------- on branch master, folder /docs"
 echo "================================================="
 
 echo "Travis CI (build $TRAVIS_BUILD_VERSION)" >> docs/README.md
+
+git commit -m "Update GitHub Pages index."
+git push
