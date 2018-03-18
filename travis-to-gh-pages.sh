@@ -16,7 +16,7 @@ echo "================================================="
 echo 
 #git config --global user.email "travis@travis-ci.org"
 #git config --global user.name "Travis CI"
-#git fetch --all
+git fetch --all
 git pull --all
 git branch
 #git checkout gh-pages
