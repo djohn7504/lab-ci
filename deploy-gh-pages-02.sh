@@ -19,7 +19,8 @@ cd out
 #git-checkout gh-pages
 git checkout origin/gh-pages -b gh-pages
 
-cp ../deploy/index-linux.html ./index.html
+#cp ../deploy/index-linux.html ./index.html
+echo "Travis CI (build $TRAVIS_BUILD_NUMBER)" >> index.html
 
 git add .
 git commit -m "Deployed to Github Pages"

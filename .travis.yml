@@ -35,5 +35,6 @@ script:
 #  - echo "======================================================"
 
 after_success:
-  - sh travis-to-gh-pages.sh
+  - sh deploy-gh-pages_02.sh
+#  - sh travis-to-gh-pages.sh
 #  - sh travis-to-releases.sh

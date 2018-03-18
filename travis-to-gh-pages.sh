@@ -19,7 +19,7 @@ echo
 #git fetch --all
 #git pull --all
 #git checkout gh-pages
-#echo "Travis CI (build $TRAVIS_BUILD_NUMBER)" >> docs/README.md
+#echo "Travis CI (build $TRAVIS_BUILD_NUMBER)" >> index.html
 #git add .
 #git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
 #git push --force --quiet "https://${GITHUB_TOKEN_2}@github.com/djohn7504/lab-ci" master
