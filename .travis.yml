@@ -27,14 +27,11 @@ branches:
 script:
   - |
     echo "======================================================"
-    echo "script.."
+    echo "Travis CI (build $TRAVIS_BUILD_NUMBER)"
     echo "======================================================"
 
-  #  - echo "======================================================"
-#  - echo "script.."
-#  - echo "======================================================"
-
 after_success:
-#  - sh deploy-gh-pages-02.sh
-  - sh travis-to-gh-pages.sh
-#  - sh travis-to-releases.sh
+  - |
+    sh travis-to-gh-pages.sh # deploy to GitHub Pages branch -> OK
+#   sh deploy-gh-pages-02.sh
+#   sh travis-to-releases.sh
