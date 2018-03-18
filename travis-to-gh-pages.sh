@@ -3,21 +3,20 @@
 # Make sure the script fails when any of the commands fail.
 set -e
 
-BRANCH_NAME=gh-pages
+echo "================================================="
+echo "--------------- starting deploy to GitHub Pages.."
+echo "================================================="
 
-echo "===================================="
-echo "--------------- starting deploy to $BRANCH_NAME.."
-echo "--------------- $(uname)"
-# Darwin, Linux, ?..
-echo "===================================="
+echo 
 
+echo "================================================="
+echo "--------------- on branch gh-pages"
+echo "================================================="
 
+echo 
 
+echo "================================================="
+echo "--------------- on branch master, folder /docs"
+echo "================================================="
 
-
-
-echo "===================================="
-git branch
-#git checkout $BRANCH_NAME
-echo "===================================="
-ls $TRAVIS_BUILD_DIR
+echo "Travis CI (build $TRAVIS_BUILD_VERSION)" >> docs/README.md

@@ -19,17 +19,6 @@ git:
 #             ex: git checkout tags/release-test
 
 
-env:
-    global:
-        # get all the branches referencing this commit
-#       - REAL_BRANCH=$(git ls-remote origin | sed -n "\|$TRAVIS_COMMIT\s\+refs/heads/|{s///p}")
-
-        # or check if we are on a particular branch:
-#       - IS_RELEASE=$(git ls-remote origin | grep "$TRAVIS_COMMIT\s\+refs/heads/release$")
-
-#        - IS_RELEASE_TEST_EXIST=$(git ls-remote --exit-code --tags origin release-test)
-#        - IS_RELEASE_TEST_EXIST=$(git ls-remote --exit-code --tags origin DUMMY)
-#        - IS_RELEASE_TEST_EXIST=${#git ls-remote --exit-code --tags origin release-test}   # 0, >0   BAD
 
 branches:
   only:
