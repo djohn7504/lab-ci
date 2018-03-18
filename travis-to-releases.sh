@@ -11,16 +11,17 @@ echo "--------------- $(uname)"
 # Darwin, Linux, ?..
 echo "===================================="
 
-# test..
-#git pull
 
 if [ $(git tag --list "$TAG_NAME" == $TAG_NAME) ] ; then
-  echo "use local $TAG_NAME";
+  echo "use the local $TAG_NAME:";
+  echo "-------------";
   git checkout release-test
-#  git checkout tags/release-test
   git show $TAG_NAME
+elif [ $(git ls-remote --exit-code --tags origin $TAG_NAME) ] ; then
+  echo "use the remote $TAG_NAME:";
+  echo "--------------";
 else
-  echo "$TAG_NAME NOT exist on local !!!";
+  echo "$TAG_NAME NOT exist !!!";
 fi
 
 echo "===================================="
