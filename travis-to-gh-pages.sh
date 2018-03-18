@@ -16,6 +16,7 @@ echo "================================================="
 echo 
 git config --global user.email "travis@travis-ci.org"
 git config --global user.name "Travis CI"
+git fetch --all
 git checkout gh-pages
 #echo "Travis CI (build $TRAVIS_BUILD_NUMBER)" >> docs/README.md
 #git add .
