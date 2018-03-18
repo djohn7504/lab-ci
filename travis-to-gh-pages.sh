@@ -21,7 +21,8 @@ echo "================================================="
 
 echo "Travis CI (build $TRAVIS_BUILD_VERSION)" >> docs/README.md
 
+git checkout master
 git add .
 git commit -m "Update GitHub Pages index."
-#git push
-git push origin HEAD:master
+git push
+#git push origin HEAD:master
