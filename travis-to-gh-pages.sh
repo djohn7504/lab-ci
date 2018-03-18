@@ -35,5 +35,5 @@ git add .
 git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
 #git push
 #git push origin HEAD:master
-#git push --force --quiet "https://${GITHUB_TOKEN}@github.com/djohn7504/lab-ci" master:gh-pages > /dev/null 2>&1
-git push --force --quiet "https://${GITHUB_TOKEN_02}@github.com/djohn7504/lab-ci" master
+#git push --force --quiet "https://${GITHUB_TOKEN_2}@github.com/djohn7504/lab-ci" master:gh-pages > /dev/null 2>&1
+git push --force --quiet "https://${GITHUB_TOKEN_2}@github.com/djohn7504/lab-ci" master
