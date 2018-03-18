@@ -11,11 +11,12 @@ echo "--------------- $(uname)"
 # Darwin, Linux, ?..
 echo "===================================="
 
-# BSD
-#if [[ `git tag --list $TAG_NAME` == $TAG_NAME ]]; then
-# GNU
+# test..
+#git pull
+
 if [ $(git tag --list "$TAG_NAME" == $TAG_NAME) ] ; then
   echo "$TAG_NAME exist on local";
+#  git checkout tags/release-test
 else
   echo "$TAG_NAME NOT exist on local !!!";
 fi
