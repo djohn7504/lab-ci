@@ -15,8 +15,10 @@ echo "===================================="
 #git pull
 
 if [ $(git tag --list "$TAG_NAME" == $TAG_NAME) ] ; then
-  echo "$TAG_NAME exist on local";
+  echo "use local $TAG_NAME";
+  git checkout release-test
 #  git checkout tags/release-test
+  git show $TAG_NAME
 else
   echo "$TAG_NAME NOT exist on local !!!";
 fi
