@@ -36,34 +36,12 @@ branches:
     - master
 
 script:
-  - echo "======================================================" && \
-    echo "script.." && \
-    echo "======================================================"
+  - echo "======================================================" && echo "script.." && echo "======================================================"
 
   #  - echo "======================================================"
 #  - echo "script.."
 #  - echo "======================================================"
 
-#before_cache:
-#before_script:
-#after_script:
 after_success:
-  - echo "======================================================"
-#  - ls $TRAVIS_BUILD_DIR
-  - echo "======================================================"
-  - git ls-remote --exit-code --tags origin release-test
-  - echo "======================================================"
-  - echo "IS_RELEASE_TEST_EXIST:"
-  - echo "$IS_RELEASE_TEST_EXIST"
-  - echo chrlen=${#IS_RELEASE_TEST_EXIST}         # 0, >0
-  - echo "======================================================"
-  #- |
-  #  if [ $(git ls-remote --exit-code --tags origin release-test) ]; then \
-  #    echo "OK exist"; \
-  #  else \
-  #    echo "NOT exist !!!"; \
-  #  fi;
   - sh travis-to-gh-pages.sh
 #  - sh travis-to-releases.sh
-  - echo "======================================================"
-#      exit 1;
