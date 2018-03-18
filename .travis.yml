@@ -33,5 +33,4 @@ script:
 after_success:
   - |
     sh travis-to-gh-pages.sh # deploy to GitHub Pages branch -> OK
-#   sh deploy-gh-pages-02.sh
 #   sh travis-to-releases.sh

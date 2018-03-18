@@ -23,4 +23,4 @@ git add README.md
 git commit --message "Update GitHub Pages."
 
 # send..
-git push --force --quiet "https://$GITHUB_TOKEN_2@github.com/djohn7504/lab-ci"
+git push --force --quiet "https://$GITHUB_TOKEN@github.com/djohn7504/lab-ci"
