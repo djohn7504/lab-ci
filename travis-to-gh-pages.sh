@@ -22,7 +22,7 @@ git clone --branch "gh-pages" https://github.com/djohn7504/lab-ci.git .
 echo "<br>Travis CI (build $TRAVIS_BUILD_NUMBER)" >> index.html
 echo "" >> README.md
 echo "####Travis CI (build $TRAVIS_BUILD_NUMBER)" >> README.md
-git add index.html
+git add index.html README.md
 git commit --message "Change index.html"
 git push --force --quiet "https://$GITHUB_TOKEN_2@github.com/djohn7504/lab-ci"
 
