@@ -1,1 +1,23 @@
+# see: https://github.com/pages-themes/cayman
+
 theme: jekyll-theme-cayman
+
+#title: [The title of your site]
+title: title..
+
+#description: [A short description of your site's purpose]
+description: description..
+
+#show_downloads: ["true" or "false" to indicate whether to provide a download URL]
+show_downloads: true
+
+#google_analytics: [Your Google Analytics tracking ID]
+
+
+
+
+# Overriding GitHub-generated URLs
+
+#github:
+#  zip_url: http://example.com/download.zip
+#  another_url: another value
