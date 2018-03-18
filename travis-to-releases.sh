@@ -17,7 +17,7 @@ if [ $(git tag --list "$TAG_NAME" == $TAG_NAME) ] ; then
   echo "-------------";
   git checkout release-test
   git show $TAG_NAME
-elif [ $(git ls-remote --exit-code --tags origin $TAG_NAME) ] ; then
+elif git ls-remote --exit-code --tags origin $TAG_NAME >/dev/null 2>&1 ; then
   echo "use the remote $TAG_NAME:";
   echo "--------------";
 else
