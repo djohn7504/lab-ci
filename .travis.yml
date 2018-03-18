@@ -27,7 +27,7 @@ env:
         # or check if we are on a particular branch:
 #       - IS_RELEASE=$(git ls-remote origin | grep "$TRAVIS_COMMIT\s\+refs/heads/release$")
 
-        - IS_RELEASE_TEST_EXIST=$(git ls-remote --exit-code --tags origin release-test)
+#        - IS_RELEASE_TEST_EXIST=$(git ls-remote --exit-code --tags origin release-test)
 #        - IS_RELEASE_TEST_EXIST=$(git ls-remote --exit-code --tags origin DUMMY)
 #        - IS_RELEASE_TEST_EXIST=${#git ls-remote --exit-code --tags origin release-test}   # 0, >0   BAD
 
@@ -36,9 +36,13 @@ branches:
     - master
 
 script:
-  - echo "======================================================"
-  - echo "script.."
-  - echo "======================================================"
+  - echo "======================================================" && \
+    echo "script.." && \
+    echo "======================================================"
+
+  #  - echo "======================================================"
+#  - echo "script.."
+#  - echo "======================================================"
 
 #before_cache:
 #before_script:
@@ -59,7 +63,7 @@ after_success:
   #  else \
   #    echo "NOT exist !!!"; \
   #  fi;
-#  - sh travis-to-gh-pages.sh
-  - sh travis-to-releases.sh
+  - sh travis-to-gh-pages.sh
+#  - sh travis-to-releases.sh
   - echo "======================================================"
 #      exit 1;
