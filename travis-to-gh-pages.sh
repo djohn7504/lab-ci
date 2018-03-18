@@ -3,20 +3,22 @@
 # Make sure the script fails when any of the commands fail.
 set -e
 
+TAG_NAME=release-test
+TAG_NAME=gh-pages
+
 echo "===================================="
-echo "--------------- starting deploy..."
+echo "--------------- starting deploy to $TAG_NAME.."
 echo "--------------- $(uname)"
 # Darwin, Linux, ?..
 echo "===================================="
 
 
-# OK
-if git ls-remote --exit-code --tags origin release-test >/dev/null 2>&1 ; then
-# BAD
-#if [[ `git ls-remote --exit-code --tags origin release-test` ]]; then
-  echo "OK exist on remote";
+
+
+if (git ls-remote --exit-code --tags origin $TAG_NAME >/dev/null 2>&1) ; then
+  echo "$TAG_NAME exist on remote";
 else
-  echo "NOT exist on remote !!!";
+  echo "$TAG_NAME NOT exist on remote !!!";
 fi
 
 
@@ -25,7 +27,8 @@ echo "===================================="
 git tag --list
 echo "===================================="
 # To make it create such a tag if it does not yet exist:
-git fetch origin refs/tags/release-test:refs/tags/release-test
+#git fetch origin refs/tags/release-test:refs/tags/release-test
+
 echo "===================================="
 #git status
 git tag --list
