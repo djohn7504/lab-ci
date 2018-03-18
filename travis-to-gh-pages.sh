@@ -21,6 +21,8 @@ echo "================================================="
 
 
 git checkout master
+git config user.name ${GIT_NAME}
+git config user.email ${GIT_EMAIL}
 echo "Travis CI (build $TRAVIS_BUILD_VERSION)" >> docs/README.md
 git add .
 git commit -m "Update GitHub Pages index."
