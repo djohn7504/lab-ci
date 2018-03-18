@@ -18,6 +18,7 @@ echo
 #git config --global user.name "Travis CI"
 #git fetch --all
 git pull --all
+git branch
 #git checkout gh-pages
 #echo "Travis CI (build $TRAVIS_BUILD_NUMBER)" >> index.html
 #git add .
