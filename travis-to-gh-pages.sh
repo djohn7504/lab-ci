@@ -26,10 +26,15 @@ echo
 
 
 #git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
-for b in `git branch -r | grep -v -- '->'`; do git branch --track ${b##origin/} $b; done
+#for b in `git branch -r | grep -v -- '->'`; do git branch --track ${b##origin/} $b; done
 #git fetch --all
 #git pull --all
 
+rm -rf out || exit 0;
+
+mkdir out
+cd out
+git clone --depth=2 --branch=master https://github.com/djohn7504/lab-ci.git
 
 git branch
 
