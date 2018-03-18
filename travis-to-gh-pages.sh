@@ -31,15 +31,11 @@ rm -rf out || exit 0;
 mkdir out
 cd out
 
-#git clone --depth=2 --branch=master https://github.com/djohn7504/lab-ci.git
-git clone https://github.com/djohn7504/lab-ci.git
-
-#git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
-#for b in `git branch -r | grep -v -- '->'`; do git branch --track ${b##origin/} $b; done
-#git fetch --all
-#git pull --all
-
-git branch
+git clone --branch "gh-pages" https://github.com/djohn7504/lab-ci.git .
+echo "<br>Travis CI (build $TRAVIS_BUILD_NUMBER)" >> index.html
+git add index.html
+git commit --message "Change index.html"
+git push --force --quiet "https://$GITHUB_TOKEN_2@github.com/djohn7504/lab-ci"
 
 
 echo "================================================="
