@@ -16,9 +16,8 @@ echo "================================================="
 echo 
 #git config --global user.email "travis@travis-ci.org"
 #git config --global user.name "Travis CI"
-git fetch --all
-git pull --all
-git branch
+#git fetch --all
+#git pull --all
 #git checkout gh-pages
 #echo "Travis CI (build $TRAVIS_BUILD_NUMBER)" >> index.html
 #git add .
@@ -27,9 +26,12 @@ git branch
 
 
 #git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
+for b in `git branch -r | grep -v -- '->'`; do git branch --track ${b##origin/} $b; done
 #git fetch --all
+#git pull --all
 
 
+git branch
 
 
 echo "================================================="
