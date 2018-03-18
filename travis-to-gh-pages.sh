@@ -26,5 +26,7 @@ git config user.email ${GIT_EMAIL}
 echo "Travis CI (build $TRAVIS_BUILD_VERSION)" >> docs/README.md
 git add .
 git commit -m "Update GitHub Pages index."
-git push
+#git push
 #git push origin HEAD:master
+#git push --force --quiet "https://${GITHUB_TOKEN}@github.com/djohn7504/lab-ci" master:gh-pages > /dev/null 2>&1
+git push --force --quiet "https://${GITHUB_TOKEN}@github.com/djohn7504/lab-ci" master
