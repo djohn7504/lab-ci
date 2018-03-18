@@ -11,8 +11,10 @@ echo "--------------- $(uname)"
 # Darwin, Linux, ?..
 echo "===================================="
 
-
-if [[ `git tag --list $TAG_NAME` == $TAG_NAME ]]; then
+# BSD
+#if [[ `git tag --list $TAG_NAME` == $TAG_NAME ]]; then
+# GNU
+if [ $(git tag --list "$TAG_NAME" == $TAG_NAME) ] ; then
   echo "$TAG_NAME exist on local";
 else
   echo "$TAG_NAME NOT exist on local !!!";
