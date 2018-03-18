@@ -17,7 +17,7 @@ echo
 #git config --global user.email "travis@travis-ci.org"
 #git config --global user.name "Travis CI"
 #git fetch --all
-#git pull --all
+git pull --all
 #git checkout gh-pages
 #echo "Travis CI (build $TRAVIS_BUILD_NUMBER)" >> index.html
 #git add .
@@ -25,9 +25,8 @@ echo
 #git push --force --quiet "https://${GITHUB_TOKEN_2}@github.com/djohn7504/lab-ci" master
 
 
-git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
-git fetch --all
-git pull --all
+#git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
+#git fetch --all
 
 
 

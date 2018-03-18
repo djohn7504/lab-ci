@@ -25,4 +25,4 @@ echo "Travis CI (build $TRAVIS_BUILD_NUMBER)" >> index.html
 #git add .
 git add index.html
 git commit -m "Deployed to Github Pages"
-git push --force --quiet "https://${GITHUB_TOKEN}@github.com/djohn7504/lab-ci" master:gh-pages > /dev/null 2>&1
+git push --force --quiet "https://${GITHUB_TOKEN_2}@github.com/djohn7504/lab-ci" master:gh-pages > /dev/null 2>&1
