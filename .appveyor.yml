@@ -37,9 +37,14 @@ deploy:
 after_deploy:
 - pwsh: echo "After deployement.."
 - pwsh: mkdir "out"
+- pwsh: ls "out"
+- pwsh: ls "./out"
 - pwsh: cd "out"
 - pwsh: ls
 - pwsh: ls "out"
+- pwsh: >-
+    cd out
+    ls .
 - pwsh: git clone --branch "gh-pages" https://github.com/djohn7504/lab-ci.git .
 - pwsh: >-
     echo "" >> README.md
