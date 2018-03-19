@@ -13,3 +13,5 @@
 #### AppVeyor CI (build 1.0.212)
 
 #### Travis CI (build 379)
+
+#### AppVeyor CI (build 1.0.213)
