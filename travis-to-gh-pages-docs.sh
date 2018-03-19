@@ -3,27 +3,12 @@
 # Make sure the script fails when any of the commands fail.
 set -e
 
-echo "================================================="
-echo "--------------- starting deploy to GitHub Pages.."
-echo "================================================="
-echo
 
-# where..
-rm -rf out || exit 0;
-mkdir out
-cd out
-
-# what..
-git clone --branch "gh-pages" https://github.com/djohn7504/lab-ci.git .
-
-# modify..
-echo "" >> README.md
-echo "#### Travis CI (build $TRAVIS_BUILD_NUMBER)" >> README.md
-git add README.md
-git commit --message "Update GitHub Pages."
-
-# send..
+echo "" >> Docs/README.md
+echo "#### Travis CI (build $TRAVIS_BUILD_NUMBER)" >> Docs/README.md
+git add Docs/README.md
+# *********************************************************************************
+# IMPORTANT: [skip ci] to avoid infinite loop !!!
+# *********************************************************************************
+git commit --message "Update GitHub Pages. (Docs folder) [skip ci]"
 git push --force --quiet "https://$GITHUB_TOKEN@github.com/djohn7504/lab-ci"
-
-# cleanup..
-cd ..

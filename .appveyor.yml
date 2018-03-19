@@ -28,8 +28,9 @@ deploy:
     branch: master
   auth_token:
     secure: 4o8ACklOo/BelSTv6EQZgORUPYFRUP5wgxdgx+Dovb6i2dhgGn25jDep0OuMcDAP
-  tag: release-test
+  tag: master-build
   force_update: true
 
 after_deploy:
-- cmd: appveyor-to-gh-pages.cmd
+- cmd: appveyor-to-gh-pages-branch.cmd
+#- cmd: appveyor-to-gh-pages-docs.cmd

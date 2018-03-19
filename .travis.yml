@@ -57,4 +57,5 @@ after_deploy:
   - git checkout "master"
 
 after_success:
-  - sh travis-to-gh-pages.sh
+  - sh travis-to-gh-pages-branch.sh
+  - sh travis-to-gh-pages-docs.sh
