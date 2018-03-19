@@ -13,11 +13,11 @@ environment:
 build_script:
 - cmd: echo Build %appveyor_build_version%..
 - cmd: echo build %appveyor_build_version%>>deploy/index-windows.html
-- cmd: echo:
+- cmd: echo.
 
 test_script:
 - cmd: echo Test build %appveyor_build_version%..
-- cmd: echo:
+- cmd: echo.
 
 artifacts:
 - path: deploy\index-windows.html
