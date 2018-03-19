@@ -10,7 +10,6 @@ git fetch --unshallow --tags
 git checkout master
 
 
-
 echo:>>Docs\README.md
 echo ^#^#^#^# AppVeyor CI (build %appveyor_build_version%)>>Docs\README.md
 git add Docs\README.md
