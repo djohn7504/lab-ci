@@ -32,12 +32,11 @@ before_deploy:
 # - git checkout $TAG_TARGET
   # TODO: if exist ?..
 
-  - |
-    if (git ls-remote --exit-code --tags origin $TAG_TARGET >/dev/null) ; then
-	    echo "exist on remote"
-      git fetch --unshallow --tags
-      git checkout $TAG_TARGET
-    fi
+  - 'if (git ls-remote --exit-code --tags origin $TAG_TARGET >/dev/null) ; then
+	    echo "exist on remote";
+      git fetch --unshallow --tags;
+      git checkout $TAG_TARGET;
+    fi'
 
 deploy:
   - provider: releases
