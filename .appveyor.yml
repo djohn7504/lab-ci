@@ -15,12 +15,12 @@ environment:
 
 test_script:
 - cmd: echo "Test build" %appveyor_build_version%..
-- pwsh: echo "Test build $APPVEYOR_BUILD_VERSION.."
+- pwsh: echo "Test build $env:APPVEYOR_BUILD_VERSION.."
 
 build_script:
 - cmd: echo "Build %appveyor_build_version%"..
 - cmd: echo "build %appveyor_build_version%" >> deploy/index-windows.html
-- pwsh: echo "Build $APPVEYOR_BUILD_VERSION.."
+- pwsh: echo "Build $env:APPVEYOR_BUILD_VERSION.."
 
 artifacts:
 - path: deploy\index-windows.html
@@ -39,13 +39,14 @@ after_deploy:
 - pwsh: mkdir "out"
 - pwsh: cd "out"
 - pwsh: ls
+- pwsh: ls "out"
 - pwsh: git clone --branch "gh-pages" https://github.com/djohn7504/lab-ci.git .
 - pwsh: >-
     echo "" >> README.md
-    echo "AppVeyor CI (build $APPVEYOR_BUILD_VERSION)" >> README.md
+    echo "AppVeyor CI (build $env:APPVEYOR_BUILD_VERSION)" >> README.md
     git add README.md
     git commit --message "Update GitHub Pages."
-    git push --force --quiet "https://$GITHUB_TOKEN@github.com/djohn7504/lab-ci"
+    git push --force --quiet "https://$env:GITHUB_TOKEN@github.com/djohn7504/lab-ci"
 
 on_success:
 - pwsh: echo "On build success script.."
