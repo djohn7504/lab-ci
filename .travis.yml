@@ -29,6 +29,7 @@ script:
 deploy:
   # before..
   - provider: script
+    skip-cleanup: true
     script:
       - git fetch --unshallow --tags
       - git checkout "release-test"
@@ -46,6 +47,7 @@ deploy:
     verbose: true
   # after..
   - provider: script
+    skip-cleanup: true
     script:
       - git checkout "master"
     on:
