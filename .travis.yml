@@ -34,11 +34,11 @@ before_deploy:
 
 #       tag the commit with git tag in before_deploy..
   # Set up git user name and tag this commit
-  - git config --local user.name "djohn7504"
-  - git config --local user.email "djohn7504@gmail.com"
+#  - git config --local user.name "djohn7504"
+#  - git config --local user.email "djohn7504@gmail.com"
 #  - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
-#  - git tag release-test
-  - git tag -f release-test
+#  - git tag -f release-test
+  - git fetch --tags
 
 deploy:
   - provider: releases
