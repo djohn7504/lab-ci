@@ -8,9 +8,7 @@ branches:
 
 env:
   global:
-#   - TAG_TARGET='release-test'
     - TAG_TARGET='master-build'
-#   - TAG_EXIST=`git rev-list --count --max-count=1 release-test`  # 0 or 1
 
 script:
   - |
@@ -21,22 +19,20 @@ script:
 
 before_deploy:
 
-  # see: https://stackoverflow.com/questions/32580821/how-can-i-customize-override-the-git-clone-step-in-travis-ci
-  # convert the already existing shallow clone to a full clone
-# - git fetch --unshallow --tags
-
+  # if tag exist..
   # *********************************************************************************
   # HACK: pour écraser/compléter les assets d'un tag existant !!!
-  # En effet, les assets sont complété par d'autres CI, AppVeyor, etc..
-  # *********************************************************************************
-# - git checkout $TAG_TARGET
-  # TODO: if exist ?..
-
+  # ( les assets sont complétés par d'autres CI, comme AppVeyor, etc.. )
   - 'if (git ls-remote --exit-code --tags origin $TAG_TARGET >/dev/null) ; then
-	    echo "exist on remote";
+
+      # convert the already existing shallow clone to a full clone
       git fetch --unshallow --tags;
+
+      # HACK: pas top, mais pas trouvé mieux !
       git checkout $TAG_TARGET;
+
     fi'
+  # *********************************************************************************
 
 deploy:
   - provider: releases
@@ -53,9 +49,10 @@ deploy:
 after_deploy:
   # *********************************************************************************
   # restore.. (see the HACK)
-  # *********************************************************************************
   - git checkout "master"
+  # *********************************************************************************
 
-after_success:
   - sh travis-to-gh-pages-branch.sh
   - sh travis-to-gh-pages-docs.sh
+
+#after_success:

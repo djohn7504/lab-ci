@@ -20,7 +20,8 @@ git clone --branch "gh-pages" https://github.com/djohn7504/lab-ci.git .
 echo "" >> README.md
 echo "#### Travis CI (build $TRAVIS_BUILD_NUMBER)" >> README.md
 git add README.md
-git commit --message "Update GitHub Pages."
+#git commit --message "Update GitHub Pages."
+git commit --message "Update GitHub Pages.[skip ci]"
 
 # send..
 git push --force --quiet "https://$GITHUB_TOKEN@github.com/djohn7504/lab-ci"
