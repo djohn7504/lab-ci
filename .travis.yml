@@ -34,13 +34,17 @@ before_deploy:
 
   # *********************************************************************************
   # HACK: pour écraser/compléter les assets d'un tag existant !!!
-  # En effet, on compléter pas des asets Windows, macOS, Linux, etc..
+  # En effet, on complète par des assets Windows, macOS, Linux, etc.., depuis d'autres CI !
   # Aller dans la bonne branche, si exist, autrement elle est créée..
 # - if [ "$TAG_EXIST" ]; then git checkout "$TAG_TARGET"; else echo "NOT EXIST"; fi
 #  - git checkout "release-test"               # ?!!!
   # *********************************************************************************
   # voir: if exist ?..
   # voir: clone depth ?..
+
+
+
+
 
 #  - git config --global user.name "djohn7504"
 #  - git config --global user.email "djohn7504@gmail.com"
@@ -55,6 +59,7 @@ before_deploy:
 
 deploy:
   - provider: releases
+    edge: true
     on:
       branch: master
     api-key:
