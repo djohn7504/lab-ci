@@ -48,7 +48,7 @@ deploy:
       - secure: $GITHUB_TOKEN
     skip-cleanup: true
     file: deploy/index-linux.html
-#    tag_name: release-test                    # ?!!!
+    tag_name: release-test                    # ?!!!
     overwrite: true                             # pourquoi proposer, si erreur tag exist ???????????
     verbose: true
 #   target_commitish: $TRAVIS_COMMIT # <--------both used
