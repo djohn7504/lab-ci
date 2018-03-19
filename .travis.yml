@@ -18,21 +18,16 @@ script:
     echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index-linux.html
 
 before_deploy:
-
-  # if tag exist..
-  # *********************************************************************************
-  # HACK: pour écraser/compléter les assets d'un tag existant !!!
-  # ( les assets sont complétés par d'autres CI, comme AppVeyor, etc.. )
+  # ***************************************************************************************************
+  # HACK: pour écraser/compléter les assets d'un tag existant, par d'autres CI, comme AppVeyor, etc.. !!!
+  #       1. if tag exist..
+  #       2. fetch -> convert the already existing shallow clone to a full clone
+  #       3. checkout -> pas top, mais pas trouvé mieux !
   - 'if (git ls-remote --exit-code --tags origin $TAG_TARGET >/dev/null) ; then
-
       git fetch --unshallow --tags;
-
       git checkout $TAG_TARGET;
-
     fi'
-      # convert the already existing shallow clone to a full clone;
-      # HACK: pas top, mais pas trouvé mieux !;
-  # *********************************************************************************
+  # ***************************************************************************************************
 
 deploy:
   - provider: releases
@@ -47,12 +42,11 @@ deploy:
     verbose: true
 
 after_deploy:
-  # *********************************************************************************
+  # ***************************************************************************************************
   # restore.. (see the HACK)
   - git checkout "master"
-  # *********************************************************************************
+  # ***************************************************************************************************
 
+after_script:
   - sh travis-to-gh-pages-branch.sh
   - sh travis-to-gh-pages-docs.sh
-
-#after_success:
