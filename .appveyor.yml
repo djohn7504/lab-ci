@@ -50,8 +50,8 @@ after_deploy:
 - cmd: mkdir out
 - cmd: cd out
 - cmd: dir
-- cmd: git config --global user.email "djohn7504@gmail.com"
-- cmd: git config --global user.name "djohn7504"
+#- cmd: git config --global user.email "djohn7504@gmail.com"
+#- cmd: git config --global user.name "djohn7504"
 #- pwsh: git clone --branch "gh-pages" https://github.com/djohn7504/lab-ci.git .
 - cmd: git clone --branch "gh-pages" https://github.com/djohn7504/lab-ci.git .
 - cmd: dir
