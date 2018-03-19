@@ -20,7 +20,15 @@ script:
 before_deploy:
   # Aller dans la bonne branche, si exist, autrement elle est créée..
 # - if [ "$TAG_EXIST" ]; then git checkout "$TAG_TARGET"; else echo "NOT EXIST"; fi
-  - git checkout "release-test"
+#  - git checkout "release-test"               # ?!!!
+#  - git config --global user.email "djohn7504@gmail.com"
+#  - git config --global user.name "djohn7504"
+
+#       tag the commit with git tag in before_deploy..
+  # Set up git user name and tag this commit
+  - git config --local user.name "djohn7504"
+  - git config --local user.email "djohn7504@gmail.com"
+  - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
 
 deploy:
   - provider: releases
@@ -30,7 +38,7 @@ deploy:
       - secure: $GITHUB_TOKEN
     skip-cleanup: true
     file: deploy/index-linux.html
-    tag_name: release-test
+#    tag_name: release-test                    # ?!!!
     overwrite: true
     verbose: true
 #   target_commitish: $TRAVIS_COMMIT # <--------both used
@@ -39,5 +47,5 @@ deploy:
 #after_success:
 after_deploy:
   - |
-    git checkout "master"
+ #  git checkout "master"                     # ?!!!
     sh travis-to-gh-pages.sh
