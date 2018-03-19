@@ -10,14 +10,14 @@ environment:
   GITHUB_TOKEN:
     secure: 4o8ACklOo/BelSTv6EQZgORUPYFRUP5wgxdgx+Dovb6i2dhgGn25jDep0OuMcDAP
 
-test_script:
-- cmd: echo "Test build" %appveyor_build_version%..
-- pwsh: echo "Test build $env:APPVEYOR_BUILD_VERSION.."
-
 build_script:
-- cmd: echo "Build %appveyor_build_version%"..
-- cmd: echo "build %appveyor_build_version%" >> deploy/index-windows.html
-- pwsh: echo "Build $env:APPVEYOR_BUILD_VERSION.."
+- cmd: echo Build %appveyor_build_version%..
+- cmd: echo build %appveyor_build_version%>>deploy/index-windows.html
+- cmd: echo:
+
+test_script:
+- cmd: echo Test build %appveyor_build_version%..
+- cmd: echo:
 
 artifacts:
 - path: deploy\index-windows.html

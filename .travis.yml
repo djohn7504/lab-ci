@@ -3,7 +3,8 @@ sudo: false
 dist: trusty
 
 git:
-  depth: 2
+# depth: 2
+  depth: 3000
 
 branches:
   only:
