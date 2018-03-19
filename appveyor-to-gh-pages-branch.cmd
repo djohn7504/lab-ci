@@ -20,7 +20,6 @@ git clone --branch "gh-pages" https://github.com/djohn7504/lab-ci.git .
 echo:>>README.md
 echo ^#^#^#^# AppVeyor CI (build %appveyor_build_version%)>>README.md
 git add README.md
-::git commit --message "Update GitHub Pages."
 git commit --message "Update GitHub Pages.[skip ci]"
 
 :: send..

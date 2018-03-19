@@ -6,6 +6,7 @@ echo =================================================
 echo:
 
 
+git fetch --unshallow --tags
 git checkout master
 
 
