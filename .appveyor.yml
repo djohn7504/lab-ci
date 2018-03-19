@@ -55,9 +55,9 @@ after_deploy:
 #- pwsh: git clone --branch "gh-pages" https://github.com/djohn7504/lab-ci.git .
 - cmd: git clone --branch "gh-pages" https://github.com/djohn7504/lab-ci.git .
 - cmd: dir
-- cmd: echo . >> README.md
+- cmd: echo.>> README.md
 #- cmd: echo "AppVeyor CI (build $env:APPVEYOR_BUILD_VERSION)" >> README.md
-- cmd: echo #### AppVeyor CI (build %appveyor_build_version%) >> README.md
+- cmd: echo #### AppVeyor CI (build %appveyor_build_version%)>> README.md
 - cmd: git add README.md
 - cmd: git commit --message "Update GitHub Pages."
 #- cmd: git push --force --quiet "https://$env:GITHUB_TOKEN@github.com/djohn7504/lab-ci"
