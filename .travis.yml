@@ -16,6 +16,11 @@ script:
     echo "Travis CI (build $TRAVIS_BUILD_NUMBER)"
     echo "======================================================"
 
+before_deploy:
+  # Aller dans la bonne branche, si exist, autrement elle est créée..
+# - if [ "$TAG_EXIST" ]; then git checkout "$TAG_TARGET"; else echo "NOT EXIST"; fi
+  - git checkout "release-test"
+
 deploy:
   - provider: releases
     on:
@@ -27,6 +32,8 @@ deploy:
     tag_name: release-test
     overwrite: true
     verbose: true
+    target_commitish: $TRAVIS_COMMIT # <--------both used
+#   tag_name: $TRAVIS_TAG # <--------both used
 
 #after_success:
 after_deploy:
