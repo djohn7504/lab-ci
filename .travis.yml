@@ -15,6 +15,7 @@ script:
     echo "======================================================"
     echo "Travis CI (build $TRAVIS_BUILD_NUMBER)"
     echo "======================================================"
+    echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index-linux.html
 
 before_deploy:
   # Aller dans la bonne branche, si exist, autrement elle est créée..
