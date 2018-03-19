@@ -13,28 +13,20 @@ script:
     echo "======================================================"
     echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index-linux.html
 
-#before_deploy:
+before_deploy:
 
   # see: https://stackoverflow.com/questions/32580821/how-can-i-customize-override-the-git-clone-step-in-travis-ci
   # convert the already existing shallow clone to a full clone
-#  - git fetch --unshallow --tags
+  - git fetch --unshallow --tags
 
   # *********************************************************************************
   # HACK: pour écraser/compléter les assets d'un tag existant !!!
   # En effet, les assets sont complété par d'autres CI, AppVeyor, etc..
   # *********************************************************************************
-#  - git checkout "release-test"
+  - git checkout "release-test"
   # TODO: if exist ?..
 
 deploy:
-  # before..
-  - provider: script
-    skip-cleanup: true
-    script:
-      - git fetch --unshallow --tags
-      - git checkout "release-test"
-    on:
-      branch: master
   - provider: releases
     on:
       branch: master
@@ -45,19 +37,12 @@ deploy:
     tag_name: release-test
     overwrite: true                             # pourquoi proposer, si erreur de tag existant ???????????
     verbose: true
-  # after..
-  - provider: script
-    skip-cleanup: true
-    script:
-      - git checkout "master"
-    on:
-      branch: master
 
 after_deploy:
   # *********************************************************************************
   # restore.. (see the HACK)
   # *********************************************************************************
-#  - git checkout "master"
-  - sh travis-to-gh-pages.sh
+  - git checkout "master"
 
-#after_success:
+after_success:
+  - sh travis-to-gh-pages.sh
