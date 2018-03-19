@@ -36,17 +36,18 @@ deploy:
 
 after_deploy:
 - pwsh: echo "After deployement.."
-- pwsh: mkdir "out"
-- pwsh: ls "out"
-- pwsh: ls "./out"
-- pwsh: cd "out"
-- pwsh: ls
-- pwsh: ls "out"
+#- pwsh: mkdir "out"
+#- pwsh: ls "out"
+#- pwsh: ls "./out"
+#- pwsh: cd "out"
+#- pwsh: ls
+#- pwsh: ls "out"
 - cmd: dir
-- pwsh: >-
-    mkdir out
-    cd out
-    ls
+#- pwsh: >-
+#    mkdir out
+#    cd out
+#    ls
+- cmd: mkdir out
 - cmd: cd out
 - cmd: dir
 - pwsh: git clone --branch "gh-pages" https://github.com/djohn7504/lab-ci.git .
