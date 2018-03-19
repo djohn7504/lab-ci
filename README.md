@@ -7,3 +7,4 @@
 #### Travis CI (build 369)
 
 #### Travis CI (build 370)
+AppVeyor CI
