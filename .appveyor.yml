@@ -36,11 +36,11 @@ deploy:
 
 after_deploy:
 - pwsh: echo "After deployement.."
+- pwsh: mkdir "out"
+- pwsh: cd "out"
+- pwsh: ls
+- pwsh: git clone --branch "gh-pages" https://github.com/djohn7504/lab-ci.git .
 - pwsh: >-
-    mkdir "out"
-    cd out
-    ls
-    git clone --branch "gh-pages" https://github.com/djohn7504/lab-ci.git .
     echo "" >> README.md
     echo "AppVeyor CI (build $APPVEYOR_BUILD_VERSION)" >> README.md
     git add README.md
