@@ -8,8 +8,8 @@ branches:
 
 env:
   global:
-#   - TAG_TARGET='release-test'
-    - TAG_TARGET='master-build'
+    - TAG_TARGET='release-test'
+#   - TAG_TARGET='master-build'
 #   - TAG_EXIST=`git rev-list --count --max-count=1 release-test`  # 0 or 1
 
 script:
@@ -23,14 +23,21 @@ before_deploy:
 
   # see: https://stackoverflow.com/questions/32580821/how-can-i-customize-override-the-git-clone-step-in-travis-ci
   # convert the already existing shallow clone to a full clone
-  - git fetch --unshallow --tags
+# - git fetch --unshallow --tags
 
   # *********************************************************************************
   # HACK: pour écraser/compléter les assets d'un tag existant !!!
   # En effet, les assets sont complété par d'autres CI, AppVeyor, etc..
   # *********************************************************************************
-  - git checkout $TAG_TARGET
+# - git checkout $TAG_TARGET
   # TODO: if exist ?..
+
+  - |
+    if (git ls-remote --exit-code --tags origin $TAG_TARGET >/dev/null) ; then
+	    echo "exist on remote"
+      git fetch --unshallow --tags
+      git checkout $TAG_TARGET
+    fi
 
 deploy:
   - provider: releases
