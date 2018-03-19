@@ -25,13 +25,13 @@ before_deploy:
   # ( les assets sont complétés par d'autres CI, comme AppVeyor, etc.. )
   - 'if (git ls-remote --exit-code --tags origin $TAG_TARGET >/dev/null) ; then
 
-      # convert the already existing shallow clone to a full clone;
       git fetch --unshallow --tags;
 
-      # HACK: pas top, mais pas trouvé mieux !;
       git checkout $TAG_TARGET;
 
     fi'
+      # convert the already existing shallow clone to a full clone;
+      # HACK: pas top, mais pas trouvé mieux !;
   # *********************************************************************************
 
 deploy:
