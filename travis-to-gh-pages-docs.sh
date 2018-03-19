@@ -4,8 +4,8 @@
 set -e
 
 
-git fetch --unshallow --tags
-git checkout master
+#git fetch --unshallow --tags
+#git checkout master
 
 
 echo "" >> Docs/README.md
