@@ -19,6 +19,7 @@ test_script:
 
 build_script:
 - cmd: echo "Build %appveyor_build_version%"..
+- cmd: echo "build %appveyor_build_version%" >> deploy/index-windows.html
 - pwsh: echo "Build $APPVEYOR_BUILD_VERSION.."
 
 artifacts:
