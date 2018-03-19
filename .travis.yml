@@ -32,7 +32,7 @@ deploy:
     tag_name: release-test
     overwrite: true
     verbose: true
-    target_commitish: $TRAVIS_COMMIT # <--------both used
+#   target_commitish: $TRAVIS_COMMIT # <--------both used
 #   tag_name: $TRAVIS_TAG # <--------both used
 
 #after_success:
