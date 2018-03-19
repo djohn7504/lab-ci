@@ -38,4 +38,5 @@ deploy:
 #after_success:
 after_deploy:
   - |
+    git checkout "master"
     sh travis-to-gh-pages.sh
