@@ -8,8 +8,8 @@ branches:
 
 env:
   global:
-    - TAG_TARGET='release-test'
-#   - TAG_TARGET='master-build'
+#   - TAG_TARGET='release-test'
+    - TAG_TARGET='master-build'
 #   - TAG_EXIST=`git rev-list --count --max-count=1 release-test`  # 0 or 1
 
 script:
