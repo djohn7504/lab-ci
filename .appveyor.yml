@@ -7,11 +7,19 @@ branches:
   only:
     - master
 
+clone_depth: 2
+
+environment:
+  GITHUB_TOKEN:
+    secure: 4o8ACklOo/BelSTv6EQZgORUPYFRUP5wgxdgx+Dovb6i2dhgGn25jDep0OuMcDAP
+
 test_script:
-- cmd: echo "build" %appveyor_build_version%
+- cmd: echo "Test build" %appveyor_build_version%..
+- pwsh: echo "Test build $APPVEYOR_BUILD_VERSION.."
 
 build_script:
-- cmd: echo "build %appveyor_build_version%" >> deploy/index-windows.html
+- cmd: echo "Build %appveyor_build_version%"..
+- pwsh: echo "Build $APPVEYOR_BUILD_VERSION.."
 
 artifacts:
 - path: deploy\index-windows.html
@@ -21,29 +29,22 @@ deploy:
   on:
     branch: master
   auth_token:
-    secure: lvezmyQk31bjzSHu/TMwgx8gRgj8SCsRTI1ZeiLWgUh3LL6I0ecFr7+zLc4fgwsu
+    secure: 4o8ACklOo/BelSTv6EQZgORUPYFRUP5wgxdgx+Dovb6i2dhgGn25jDep0OuMcDAP
   tag: release-test
   force_update: true
 
 after_deploy:
-# - sh ./deploy-gh-pages-01.sh  # OK
-# - sh ./deploy-gh-pages-02.sh # BAD
-# - sh ./deploy-gh-pages-03.sh # ?..
+- pwsh: echo "After deployement.."
+- pwsh: >-
+    mkdir "out"
+    cd out
+    ls
+    git clone --branch "gh-pages" https://github.com/djohn7504/lab-ci.git .
+    echo "" >> README.md
+    echo "AppVeyor CI (build $APPVEYOR_BUILD_VERSION)" >> README.md
+    git add README.md
+    git commit --message "Update GitHub Pages."
+    git push --force --quiet "https://$GITHUB_TOKEN@github.com/djohn7504/lab-ci"
 
-#  - cmd: git config --global credential.helper wincred
-#  - cmd: git config --global user.email "djohn7504@gmail.com"
-#  - cmd: git config --global user.name "djohn7504"
-# - cmd: git --config credentials.helper cache
-# - ps: rm -rf out || exit 0;
-# - ps: rm -rf out
-# - cmd: rmdir out
-  - ps: mkdir "out"
-  - ps: cd out
-  - ps: ls
-# - ps: exit 0
-  - ps: git clone --branch "gh-pages" https://github.com/djohn7504/lab-ci.git .
-  - ps: echo "" >> README.md
-  - ps: echo "AppVeyor CI (build $APPVEYOR_BUILD_VERSION)" >> README.md
-  - ps: git add README.md
-  - ps: git commit --message "Update GitHub Pages."
-  - ps: git push --force --quiet "https://$GITHUB_TOKEN@github.com/djohn7504/lab-ci"
+on_success:
+- pwsh: echo "On build success script.."
