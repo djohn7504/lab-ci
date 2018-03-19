@@ -33,4 +33,4 @@ deploy:
 
 after_deploy:
 - cmd: appveyor-to-gh-pages-branch.cmd
-#- cmd: appveyor-to-gh-pages-docs.cmd
+- cmd: appveyor-to-gh-pages-docs.cmd
