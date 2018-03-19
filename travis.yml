@@ -1,0 +1,33 @@
+sudo: false
+
+dist: trusty
+
+git:
+  depth: 2
+
+branches:
+  only:
+    - master
+
+script:
+  - |
+    echo "======================================================"
+    echo "Travis CI (build $TRAVIS_BUILD_NUMBER)"
+    echo "======================================================"
+
+deploy:
+  - provider: releases
+    on:
+      branch: master
+    api-key:
+      - secure: $GITHUB_TOKEN
+    skip-cleanup: true
+    file: deploy/index-linux.html
+    tag_name: release-test
+    overwrite: true
+    verbose: true
+
+#after_success:
+after_deploy:
+  - |
+    sh travis-to-gh-pages.sh
