@@ -6,6 +6,12 @@ branches:
   only:
     - master
 
+env:
+  global:
+#   - TAG_TARGET='release-test'
+    - TAG_TARGET='master-build'
+#   - TAG_EXIST=`git rev-list --count --max-count=1 release-test`  # 0 or 1
+
 script:
   - |
     echo "======================================================"
@@ -23,7 +29,7 @@ before_deploy:
   # HACK: pour écraser/compléter les assets d'un tag existant !!!
   # En effet, les assets sont complété par d'autres CI, AppVeyor, etc..
   # *********************************************************************************
-  - git checkout "release-test"
+  - git checkout $TAG_TARGET
   # TODO: if exist ?..
 
 deploy:
@@ -34,8 +40,8 @@ deploy:
       - secure: $GITHUB_TOKEN
     skip-cleanup: true
     file: deploy/index-linux.html
-    tag_name: release-test
-    overwrite: true                             # pourquoi proposer, si erreur de tag existant ???????????
+    tag_name: $TAG_TARGET
+    overwrite: true
     verbose: true
 
 after_deploy:
