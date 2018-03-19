@@ -13,6 +13,7 @@ git checkout master
 
 echo:>>Docs\README.md
 echo ^#^#^#^# AppVeyor CI (build %appveyor_build_version%)>>Docs\README.md
+type Docs\README.md
 git add Docs\README.md
 :: *********************************************************************************
 :: IMPORTANT: [skip ci] to avoid infinite loop !!!
