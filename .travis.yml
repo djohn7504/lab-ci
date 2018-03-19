@@ -2,26 +2,9 @@ sudo: false
 
 dist: trusty
 
-git:
-  depth: 2
-# depth: 3000                   # ?!!!
-
 branches:
   only:
     - master
-
-
-install:
-#  - git clone https://github.com/$TRAVIS_REPO_SLUG.git $TRAVIS_REPO_SLUG
-#  - cd $TRAVIS_REPO_SLUG
-#  - git checkout -qf $TRAVIS_COMMIT
-
-  # see: https://stackoverflow.com/questions/32580821/how-can-i-customize-override-the-git-clone-step-in-travis-ci
-  # convert the already existing shallow clone to a full clone
-  - git fetch --unshallow --tags
-
-
-
 
 script:
   - |
@@ -32,48 +15,47 @@ script:
 
 #before_deploy:
 
+  # see: https://stackoverflow.com/questions/32580821/how-can-i-customize-override-the-git-clone-step-in-travis-ci
+  # convert the already existing shallow clone to a full clone
+#  - git fetch --unshallow --tags
+
   # *********************************************************************************
   # HACK: pour écraser/compléter les assets d'un tag existant !!!
-  # En effet, on complète par des assets Windows, macOS, Linux, etc.., depuis d'autres CI !
-  # Aller dans la bonne branche, si exist, autrement elle est créée..
-# - if [ "$TAG_EXIST" ]; then git checkout "$TAG_TARGET"; else echo "NOT EXIST"; fi
-#  - git checkout "release-test"               # ?!!!
+  # En effet, les assets sont complété par d'autres CI, AppVeyor, etc..
   # *********************************************************************************
-  # voir: if exist ?..
-  # voir: clone depth ?..
-
-
-
-
-
-#  - git config --global user.name "djohn7504"
-#  - git config --global user.email "djohn7504@gmail.com"
-
-#       tag the commit with git tag in before_deploy..
-  # Set up git user name and tag this commit
-#  - git config --local user.name "djohn7504"
-#  - git config --local user.email "djohn7504@gmail.com"
-#  - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
-#  - git tag -f release-test
-#  - git fetch --tags
+#  - git checkout "release-test"
+  # TODO: if exist ?..
 
 deploy:
+  # before..
+  - provider: script
+    script:
+      - git fetch --unshallow --tags
+      - git checkout "release-test"
+    on:
+      branch: master
   - provider: releases
-    edge: true
     on:
       branch: master
     api-key:
       - secure: $GITHUB_TOKEN
     skip-cleanup: true
     file: deploy/index-linux.html
-    tag_name: release-test                    # ?!!!
-    overwrite: true                             # pourquoi proposer, si erreur tag exist ???????????
+    tag_name: release-test
+    overwrite: true                             # pourquoi proposer, si erreur de tag existant ???????????
     verbose: true
-#   target_commitish: $TRAVIS_COMMIT # <--------both used
-#   tag_name: $TRAVIS_TAG # <--------both used
+  # after..
+  - provider: script
+    script:
+      - git checkout "master"
+    on:
+      branch: master
 
-#after_success:
-after_deploy:
-  - |
-    git checkout "master"                     # ?!!!
-    sh travis-to-gh-pages.sh
+#after_deploy:
+  # *********************************************************************************
+  # restore.. (see the HACK)
+  # *********************************************************************************
+#  - git checkout "master"
+
+after_success:
+  - sh travis-to-gh-pages.sh
