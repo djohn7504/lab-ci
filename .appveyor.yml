@@ -52,7 +52,8 @@ after_deploy:
 - cmd: dir
 - cmd: git config --global user.email "djohn7504@gmail.com"
 - cmd: git config --global user.name "djohn7504"
-- pwsh: git clone --branch "gh-pages" https://github.com/djohn7504/lab-ci.git .
+#- pwsh: git clone --branch "gh-pages" https://github.com/djohn7504/lab-ci.git .
+- cmd: git clone --branch "gh-pages" https://github.com/djohn7504/lab-ci.git .
 - cmd: dir
 - cmd: echo "" >> README.md
 - cmd: echo "AppVeyor CI (build $env:APPVEYOR_BUILD_VERSION)" >> README.md
