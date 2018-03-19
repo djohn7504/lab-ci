@@ -24,7 +24,7 @@ before_deploy:
   # En effet, on compléter pas des asets Windows, macOS, Linux, etc..
   # Aller dans la bonne branche, si exist, autrement elle est créée..
 # - if [ "$TAG_EXIST" ]; then git checkout "$TAG_TARGET"; else echo "NOT EXIST"; fi
-#  - git checkout "release-test"               # ?!!!
+  - git checkout "release-test"               # ?!!!
   # *********************************************************************************
   # voir: if exist ?..
   # voir: clone depth ?..
@@ -38,7 +38,7 @@ before_deploy:
 #  - git config --local user.email "djohn7504@gmail.com"
 #  - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
 #  - git tag -f release-test
-  - git fetch --tags
+#  - git fetch --tags
 
 deploy:
   - provider: releases
@@ -57,5 +57,5 @@ deploy:
 #after_success:
 after_deploy:
   - |
+    git checkout "master"                     # ?!!!
     sh travis-to-gh-pages.sh
- #  git checkout "master"                     # ?!!!
