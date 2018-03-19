@@ -30,7 +30,7 @@ script:
     echo "======================================================"
     echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index-linux.html
 
-before_deploy:
+#before_deploy:
 
   # *********************************************************************************
   # HACK: pour écraser/compléter les assets d'un tag existant !!!
