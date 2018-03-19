@@ -18,9 +18,16 @@ script:
     echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index-linux.html
 
 before_deploy:
+
+  # *********************************************************************************
+  # HACK: pour écraser/compléter les assets d'un tag existant !!!
+  # En effet, on compléter pas des asets Windows, macOS, Linux, etc..
   # Aller dans la bonne branche, si exist, autrement elle est créée..
 # - if [ "$TAG_EXIST" ]; then git checkout "$TAG_TARGET"; else echo "NOT EXIST"; fi
 #  - git checkout "release-test"               # ?!!!
+  # *********************************************************************************
+  # voir: if exist ?..
+  # voir: clone depth ?..
 
 #  - git config --global user.name "djohn7504"
 #  - git config --global user.email "djohn7504@gmail.com"
@@ -30,7 +37,8 @@ before_deploy:
   - git config --local user.name "djohn7504"
   - git config --local user.email "djohn7504@gmail.com"
 #  - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
-  - git tag release-test
+#  - git tag release-test
+  - git tag -f release-test
 
 deploy:
   - provider: releases
@@ -41,7 +49,7 @@ deploy:
     skip-cleanup: true
     file: deploy/index-linux.html
 #    tag_name: release-test                    # ?!!!
-    overwrite: true
+    overwrite: true                             # pourquoi proposer, si erreur tag exist ???????????
     verbose: true
 #   target_commitish: $TRAVIS_COMMIT # <--------both used
 #   tag_name: $TRAVIS_TAG # <--------both used
