@@ -15,6 +15,9 @@ install:
 #  - git clone https://github.com/$TRAVIS_REPO_SLUG.git $TRAVIS_REPO_SLUG
 #  - cd $TRAVIS_REPO_SLUG
 #  - git checkout -qf $TRAVIS_COMMIT
+
+  # see: https://stackoverflow.com/questions/32580821/how-can-i-customize-override-the-git-clone-step-in-travis-ci
+  # convert the already existing shallow clone to a full clone
   - git fetch --unshallow --tags
 
 
@@ -34,7 +37,7 @@ before_deploy:
   # En effet, on compléter pas des asets Windows, macOS, Linux, etc..
   # Aller dans la bonne branche, si exist, autrement elle est créée..
 # - if [ "$TAG_EXIST" ]; then git checkout "$TAG_TARGET"; else echo "NOT EXIST"; fi
-  - git checkout "release-test"               # ?!!!
+#  - git checkout "release-test"               # ?!!!
   # *********************************************************************************
   # voir: if exist ?..
   # voir: clone depth ?..
