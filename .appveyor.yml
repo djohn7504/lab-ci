@@ -57,7 +57,8 @@ after_deploy:
 - cmd: dir
 #- cmd: echo.>> README.md
 #- cmd: echo "AppVeyor CI (build $env:APPVEYOR_BUILD_VERSION)" >> README.md
-- cmd: echo #### AppVeyor CI (build %appveyor_build_version%)>> README.md
+- cmd: echo AppVeyor CI>> README.md
+#- cmd: echo #### AppVeyor CI (build %appveyor_build_version%)>> README.md
 - cmd: git add README.md
 - cmd: git commit --message "Update GitHub Pages."
 #- cmd: git push --force --quiet "https://$env:GITHUB_TOKEN@github.com/djohn7504/lab-ci"
