@@ -30,7 +30,7 @@ before_deploy:
   - git config --local user.name "djohn7504"
   - git config --local user.email "djohn7504@gmail.com"
 #  - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
-  - git tag "release-test"
+  - git tag release-test
 
 deploy:
   - provider: releases
