@@ -53,11 +53,11 @@ deploy:
     on:
       branch: master
 
-#after_deploy:
+after_deploy:
   # *********************************************************************************
   # restore.. (see the HACK)
   # *********************************************************************************
 #  - git checkout "master"
-
-after_success:
   - sh travis-to-gh-pages.sh
+
+#after_success:
