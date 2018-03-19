@@ -4,6 +4,11 @@
 set -e
 
 
+git fetch --unshallow --tags
+git checkout master
+
+
+
 echo "" >> Docs/README.md
 echo "#### Travis CI (build $TRAVIS_BUILD_NUMBER)" >> Docs/README.md
 git add Docs/README.md
