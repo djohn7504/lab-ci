@@ -21,4 +21,5 @@ git add Docs/README.md
 # *********************************************************************************
 git commit --message "Update GitHub Pages. (Docs folder) [skip ci]"
 #git push --force --quiet "https://$GITHUB_TOKEN@github.com/djohn7504/lab-ci"
-git push "https://$GITHUB_TOKEN@github.com/djohn7504/lab-ci"
+#git push "https://$GITHUB_TOKEN@github.com/djohn7504/lab-ci"
+git push "https://$GITHUB_TOKEN@github.com/djohn7504/lab-ci" HEAD:master
