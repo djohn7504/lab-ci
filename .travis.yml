@@ -27,8 +27,8 @@ before_deploy:
   #       2. fetch -> convert the already existing shallow clone to a full clone
   #       3. checkout -> pas top, mais pas trouvé mieux !
   - 'if (git ls-remote --exit-code --tags origin $TAG_TARGET >/dev/null) ; then
-      git stash;
       git fetch --unshallow --tags;
+      git stash;
       git checkout $TAG_TARGET;
     fi'
   # ***************************************************************************************************
