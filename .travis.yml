@@ -30,6 +30,7 @@ before_deploy:
       git fetch --unshallow --tags;
       git stash;
       git checkout $TAG_TARGET;
+      git stash apply;
     fi'
   # ***************************************************************************************************
 
