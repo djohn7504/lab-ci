@@ -16,7 +16,6 @@ script:
     echo "Travis CI (build $TRAVIS_BUILD_NUMBER)"
     echo "======================================================"
     echo "build $TRAVIS_BUILD_NUMBER" >> deploy/build-linux.txt
-  - sh travis-to-gh-pages-docs.sh
 
 before_deploy:
   # ***************************************************************************************************
@@ -28,9 +27,6 @@ before_deploy:
       git fetch --unshallow --tags;
       git checkout $TAG_TARGET;
     fi'
-#      git stash;
-#      git stash apply;
-#      git add .;
   # ***************************************************************************************************
 
 deploy:
