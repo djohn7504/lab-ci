@@ -16,6 +16,7 @@ script:
     echo "Travis CI (build $TRAVIS_BUILD_NUMBER)"
     echo "======================================================"
     echo "build $TRAVIS_BUILD_NUMBER" >> deploy/build-linux.txt
+  - sh travis-to-gh-pages-docs.sh
 
 before_deploy:
   # ***************************************************************************************************
@@ -52,4 +53,3 @@ after_deploy:
 
 after_script:
   - sh travis-to-gh-pages-branch.sh
-  - sh travis-to-gh-pages-docs.sh
