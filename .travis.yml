@@ -10,9 +10,6 @@ env:
   global:
     - TAG_TARGET='master-build'
 
-#before_script:
-#  - git fetch --unshallow --tags
-
 script:
   - |
     echo "======================================================"
@@ -28,11 +25,11 @@ before_deploy:
   #       3. checkout -> pas top, mais pas trouvé mieux !
   - 'if (git ls-remote --exit-code --tags origin $TAG_TARGET >/dev/null) ; then
       git fetch --unshallow --tags;
-      git stash;
       git checkout $TAG_TARGET;
-      git stash apply;
-      git add .;
     fi'
+#      git stash;
+#      git stash apply;
+#      git add .;
   # ***************************************************************************************************
 
 deploy:
