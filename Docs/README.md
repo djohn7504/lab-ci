@@ -31,3 +31,5 @@
 #### AppVeyor CI (build 1.0.260)
 
 #### AppVeyor CI (build 1.0.261)
+
+#### AppVeyor CI (build 1.0.262)
