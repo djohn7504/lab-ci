@@ -4,7 +4,7 @@
 set -e
 
 echo "================================================="
-echo "--------------- starting deploy to GitHub Pages.."
+echo "------ starting deploy to GitHub Pages.. (branch)"
 echo "================================================="
 echo
 

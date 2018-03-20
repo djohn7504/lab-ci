@@ -1,7 +1,7 @@
 
 
 echo =================================================
-echo --------------- starting deploy to GitHub Pages..
+echo - starting deploy to GitHub Pages.. (Docs folder)
 echo =================================================
 echo:
 

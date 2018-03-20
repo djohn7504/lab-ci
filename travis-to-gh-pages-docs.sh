@@ -3,6 +3,11 @@
 # Make sure the script fails when any of the commands fail.
 set -e
 
+echo "================================================="
+echo "- starting deploy to GitHub Pages.. (Docs folder)"
+echo "================================================="
+echo
+
 
 #git fetch --unshallow --tags
 #git checkout master
