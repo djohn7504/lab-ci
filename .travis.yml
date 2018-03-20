@@ -15,7 +15,7 @@ script:
     echo "======================================================"
     echo "Travis CI (build $TRAVIS_BUILD_NUMBER)"
     echo "======================================================"
-    echo "build $TRAVIS_BUILD_NUMBER" >> deploy/buidl-linux.txt
+    echo "build $TRAVIS_BUILD_NUMBER" >> deploy/build-linux.txt
 
 before_deploy:
   # ***************************************************************************************************
