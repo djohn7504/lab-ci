@@ -7,3 +7,5 @@
 #### AppVeyor CI (build 1.0.267)
 
 #### Travis CI (build 425)
+
+#### AppVeyor CI (build 1.0.268)
