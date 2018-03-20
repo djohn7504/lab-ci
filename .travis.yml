@@ -31,7 +31,7 @@ before_deploy:
       git stash;
       git checkout $TAG_TARGET;
       git stash apply;
-      git commit -a;
+      git add .;
     fi'
   # ***************************************************************************************************
 
