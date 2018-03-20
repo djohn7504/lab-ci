@@ -15,7 +15,7 @@ script:
     echo "======================================================"
     echo "Travis CI (build $TRAVIS_BUILD_NUMBER)"
     echo "======================================================"
-    echo "build $TRAVIS_BUILD_NUMBER" >> deploy/index-linux.html
+    echo "build $TRAVIS_BUILD_NUMBER" >> deploy/buidl-linux.txt
 
 before_deploy:
   # ***************************************************************************************************
@@ -36,7 +36,7 @@ deploy:
     api-key:
       - secure: $GITHUB_TOKEN
     skip-cleanup: true
-    file: deploy/index-linux.html
+    file: deploy/build-linux.txt
     tag_name: $TAG_TARGET
     overwrite: true
     verbose: true

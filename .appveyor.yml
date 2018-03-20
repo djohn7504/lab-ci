@@ -12,7 +12,7 @@ environment:
 
 build_script:
 - cmd: echo Build %appveyor_build_version%..
-- cmd: echo build %appveyor_build_version%>>deploy/index-windows.html
+- cmd: echo build %appveyor_build_version%>>deploy\build-windows.txt
 - cmd: echo.
 
 test_script:
@@ -20,7 +20,7 @@ test_script:
 - cmd: echo.
 
 artifacts:
-- path: deploy\index-windows.html
+- path: deploy\build-windows.txt
 
 deploy:
 - provider: GitHub
