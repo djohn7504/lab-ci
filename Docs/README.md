@@ -37,4 +37,9 @@
 #### AppVeyor CI (build 1.0.262)
 
 #### AppVeyor CI (build 1.0.263)
+<<<<<<< HEAD
 >>>>>>> babb98ae616385452e38e658da7cfacfbf922563
+=======
+
+#### Travis CI (build 422)
+>>>>>>> 8d8fc613539f6b02e9b94204e48f12865f404e1f
