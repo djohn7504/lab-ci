@@ -5,3 +5,5 @@
 #### AppVeyor CI (build 1.0.267)
 
 #### AppVeyor CI (build 1.0.268)
+
+#### AppVeyor CI (build 1.0.269)
