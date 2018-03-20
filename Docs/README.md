@@ -43,3 +43,5 @@
 
 #### Travis CI (build 422)
 >>>>>>> 8d8fc613539f6b02e9b94204e48f12865f404e1f
+
+#### AppVeyor CI (build 1.0.265)
