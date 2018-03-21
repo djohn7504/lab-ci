@@ -1,4 +1,4 @@
-﻿## Welcome to GitHub Pages.
+## Welcome to GitHub Pages.
 
 Travis CI (build XXX)
 [![Build Status](https://travis-ci.org/djohn7504/lab-ci.svg?branch=master)](https://travis-ci.org/djohn7504/lab-ci)
