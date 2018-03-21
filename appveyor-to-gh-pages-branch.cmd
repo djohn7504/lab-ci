@@ -23,7 +23,8 @@ git clone --branch "gh-pages" https://github.com/djohn7504/lab-ci.git .
 ::echo ^#^#^#^# AppVeyor CI (build %appveyor_build_version%)>>README.md
 
 :: replace..
-PowerShell -Command "(Get-Content '.\README.md') -replace '.*AppVeyor CI.*', '#### AppVeyor CI (build %appveyor_build_version%)' | Out-File '.\README.md'"
+::PowerShell -Command "(Get-Content '.\README.md') -replace '.*AppVeyor CI.*', '#### AppVeyor CI (build %appveyor_build_version%)' | Out-File '.\README.md'"
+PowerShell -Command "(Get-Content '.\README.md') -replace '.*AppVeyor CI.*', '#### AppVeyor CI (build %appveyor_build_version%)' | Out-FileUtf8NoBom '.\README.md'"
 
 
 git add README.md
