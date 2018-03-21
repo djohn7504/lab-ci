@@ -17,8 +17,13 @@ git config --global user.name "djohn7504"
 git clone --branch "gh-pages" https://github.com/djohn7504/lab-ci.git .
 
 :: modify..
+
+:: append..
 echo:>>README.md
 echo ^#^#^#^# AppVeyor CI (build %appveyor_build_version%)>>README.md
+
+:: replace..
+
 git add README.md
 git commit --message "Update GitHub Pages.[skip ci]"
 
