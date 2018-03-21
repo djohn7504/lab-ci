@@ -19,10 +19,12 @@ git clone --branch "gh-pages" https://github.com/djohn7504/lab-ci.git .
 :: modify..
 
 :: append..
-echo:>>README.md
-echo ^#^#^#^# AppVeyor CI (build %appveyor_build_version%)>>README.md
+::echo:>>README.md
+::echo ^#^#^#^# AppVeyor CI (build %appveyor_build_version%)>>README.md
 
 :: replace..
+PowerShell -Command "(Get-Content '.\README.md') -replace '.*AppVeyor CI.*', '^#^#^#^# AppVeyor CI (build %appveyor_build_version%)' | Out-File '.\README.md'"
+
 
 git add README.md
 git commit --message "Update GitHub Pages.[skip ci]"
