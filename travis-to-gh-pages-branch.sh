@@ -28,7 +28,8 @@ textReplace="#### Travis CI (build $TRAVIS_BUILD_NUMBER)"
 sedComportment=""
 destFile="./README.md"
 cat $destFile
-sed -i -- "s/$textSearch/$textReplace/$sedComportment" "$destFile"
+#sed -i -- "s/$textSearch/$textReplace/$sedComportment" "$destFile"
+sed -i "" "s/$textSearch/$textReplace/$sedComportment" "$destFile"
 cat $destFile
 
 git add README.md
