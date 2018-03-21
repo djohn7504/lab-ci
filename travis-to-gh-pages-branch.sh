@@ -17,8 +17,18 @@ cd out
 git clone --branch "gh-pages" https://github.com/djohn7504/lab-ci.git .
 
 # modify..
-echo "" >> README.md
-echo "#### Travis CI (build $TRAVIS_BUILD_NUMBER)" >> README.md
+
+# append..
+#echo "" >> README.md
+#echo "#### Travis CI (build $TRAVIS_BUILD_NUMBER)" >> README.md
+
+# replace..
+textSearch=".*Travis CI.*"
+textReplace="#### Travis CI (build $TRAVIS_BUILD_NUMBER)"
+sedComportment=""
+destFile="./README.md"
+sed -i -- "s/$textSearch/$textReplace/$sedComportment" "$destFile"
+
 git add README.md
 git commit --message "Update GitHub Pages.[skip ci]"
 
