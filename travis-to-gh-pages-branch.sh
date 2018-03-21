@@ -26,7 +26,8 @@ git clone --branch "gh-pages" https://github.com/djohn7504/lab-ci.git .
 #badge="[![Build Status](https://travis-ci.org/djohn7504/lab-ci.svg?branch=master)](https://travis-ci.org/djohn7504/lab-ci)"
 badge='[![Build Status](https://travis-ci.org/djohn7504/lab-ci.svg?branch=master)](https://travis-ci.org/djohn7504/lab-ci)'
 textSearch=".*Travis CI.*"
-textReplace="#### Travis CI (build $TRAVIS_BUILD_NUMBER) $badge"
+textReplace="#### Travis CI (build $TRAVIS_BUILD_NUMBER)"
+#textReplace="#### Travis CI (build $TRAVIS_BUILD_NUMBER) $badge"
 sedComportment=""
 destFile="./README.md"
 sed -i -- "s/$textSearch/$textReplace/$sedComportment" "$destFile"
