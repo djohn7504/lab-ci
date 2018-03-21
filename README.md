@@ -1,13 +1,6 @@
 ## Welcome to GitHub Pages.
 
-#### AppVeyor CI (build 1.0.273)
+[![Build Status](https://travis-ci.org/djohn7504/lab-ci.svg?branch=master)](https://travis-ci.org/djohn7504/lab-ci)
 
-#### Travis CI (build 434)
+[![Build status](https://ci.appveyor.com/api/projects/status/4dvfr08psgfhyx4s/branch/master?svg=true)](https://ci.appveyor.com/project/djohn7504/lab-ci/branch/master)
 
-#### AppVeyor CI (build 1.0.274)
-
-#### AppVeyor CI (build 1.0.275)
-
-#### AppVeyor CI (build 1.0.276)
-
-#### AppVeyor CI (build 1.0.277)
