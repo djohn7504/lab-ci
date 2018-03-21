@@ -24,7 +24,8 @@ git clone --branch "gh-pages" https://github.com/djohn7504/lab-ci.git .
 
 # replace..
 textSearch=".*Travis CI.*"
-textReplace="#### Travis CI (build $TRAVIS_BUILD_NUMBER)"
+#textReplace="#### Travis CI (build $TRAVIS_BUILD_NUMBER)"
+textReplace="Travis CI (build $TRAVIS_BUILD_NUMBER)"
 sedComportment=""
 destFile="./README.md"
 cat $destFile
